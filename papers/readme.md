@@ -13,3 +13,12 @@ ISTAR 2013
 * Comments:
   * 'About' section not up-to-date
   * Only tested on Google Chrome, version 26.0.1410.64 m
+
+ASE 2013
+-------------
+
+* Date of initial submission: May 17th, 2013
+* Running version at the date of submission: https://dl.dropboxusercontent.com/u/27869124/goalModelTool/vASE2013/site/index.html
+* Comments:
+  * 'About' section not up-to-date
+  * Only tested on Google Chrome, version 26.0.1410.64 m
