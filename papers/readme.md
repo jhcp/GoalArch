@@ -11,14 +11,25 @@ _João Pimentel, Konstantinos Angelopoulos, Vítor E. Silva Souza, John Mylopoul
 * Date of camera-ready submission: May 15th, 2013
 * Running version at the date of submission: https://dl.dropboxusercontent.com/u/27869124/goalModelTool/vISTAR2013/site/index.html
 * Comments:
-  * 'About' section not up-to-date
-  * Only tested on Google Chrome, version 26.0.1410.64 m
+  * The statechart derivation is unavailable
 
+RE 2015
+-------------
+_João Pimentel, Jéssyka Vilela, Jaelson Castro. [Web Tool for Goal Modelling and Statechart Derivation](http://www.cin.ufpe.br/~jhcp/publica/re2015-preprint.pdf). RE 2015 - 23rd IEEE International Requirements Engineering Conference._ 
+* Vídeo: https://www.youtube.com/watch?v=vl4MdkGkzdQ
+* Date of initial submission: April 30th, 2015
+* Running version at the date of submission: https://dl.dropboxusercontent.com/u/27869124/goalModelTool/vTese2.2/site/index.html
+* Comments:
+  * The statechart derivation is unavailable
+ 
 ISTAR 2015
 -------------
-
-* Date of initial submission: May 17th, 2013
-* Running version at the date of submission: https://dl.dropboxusercontent.com/u/27869124/goalModelTool/vASE2013/site/index.html
+_João Pimentel, Jaelson Castro. [Designing Adaptive Systems](http://ceur-ws.org/Vol-1402/paper20.pdf). iStar 2015 - 8th International i* Workshop, pp. 91-96._ 
+* Date of initial submission: June 9th, 2015
+* Running version at the date of submission: https://dl.dropboxusercontent.com/u/27869124/goalModelTool/vTese2.2/site/index.html
 * Comments:
-  * 'About' section not up-to-date
-  * Only tested on Google Chrome, version 26.0.1410.64 m
+  * The statechart derivation is unavailable
+
+
+
+
