@@ -1,0 +1,1265 @@
+{
+  "width": "2000",
+  "height": "800",
+  "elements": [
+    {
+      "id": "p104",
+      "text": "VP1",
+      "type": "parameter",
+      "x": 1148,
+      "y": 512,
+      "range": "Children [BruteForceAlgorithm, Heuristics-BasedAlgorithm]"
+    },
+    {
+      "id": "p103",
+      "text": "TIR",
+      "type": "parameter",
+      "x": 272,
+      "y": 720,
+      "range": "Integer [1, 336]"
+    },
+    {
+      "id": "p102",
+      "text": "Pre",
+      "type": "parameter",
+      "x": 341,
+      "y": 90,
+      "range": "Enumerated [NoPreload, Preload]"
+    },
+    {
+      "id": "ar101",
+      "text": "AR10: NotTrendDecrease(1d,2)",
+      "type": "indicator",
+      "x": 1182,
+      "y": 734,
+      "adaptationStrategy": "1. Reconfigure()"
+    },
+    {
+      "id": "p100",
+      "text": "SeS",
+      "type": "parameter",
+      "x": 1185,
+      "y": 681,
+      "range": "Enumerated [Service1, Service2, Service3, Service4]"
+    },
+    {
+      "id": "p99",
+      "text": "ASA",
+      "type": "parameter",
+      "x": 1151,
+      "y": 493,
+      "range": "Enumerated [Automatic, SemiAutomatic]"
+    },
+    {
+      "id": "p98",
+      "text": "MCA",
+      "type": "parameter",
+      "x": 1155,
+      "y": 474,
+      "range": "Integer [0, 50]"
+    },
+    {
+      "id": "p97",
+      "text": "VPA",
+      "type": "parameter",
+      "x": 631,
+      "y": 533,
+      "range": "Enumerated [Allowed, NotAllowed]"
+    },
+    {
+      "id": "p96",
+      "text": "FHM",
+      "type": "parameter",
+      "x": 629,
+      "y": 381,
+      "range": "Percentage [0%, 100%]"
+    },
+    {
+      "id": "ar95",
+      "text": "AR9: MaxFailure(5,7d)",
+      "type": "indicator",
+      "x": 1557,
+      "y": 227,
+      "adaptationStrategy": "1. Delegate(SoftwareArchitect)"
+    },
+    {
+      "id": "a94",
+      "text": "Less than 100\nSimultaneous Users",
+      "type": "designAssumption",
+      "x": 1403,
+      "y": 282
+    },
+    {
+      "id": "ar93",
+      "text": "AR8: NeverFail",
+      "type": "indicator",
+      "x": 1091,
+      "y": 147,
+      "adaptationStrategy": "1. Retry(5000)"
+    },
+    {
+      "id": "ar92",
+      "text": "AR7: NeverFail",
+      "type": "indicator",
+      "x": 367,
+      "y": 72,
+      "adaptationStrategy": "1. Retry(ProcessCharacterization, 5000)"
+    },
+    {
+      "id": "ar91",
+      "text": "AR6: NeverFail",
+      "type": "indicator",
+      "x": 1029,
+      "y": 381,
+      "adaptationStrategy": "1. Retry(5000)"
+    },
+    {
+      "id": "ar90",
+      "text": "AR5: MaxFailure(2,7d)",
+      "type": "indicator",
+      "x": 1146,
+      "y": 553,
+      "adaptationStrategy": "1. Notify(CompanyManager)"
+    },
+    {
+      "id": "ar89",
+      "text": "AR3: NeverFail",
+      "type": "indicator",
+      "x": 777,
+      "y": 457,
+      "adaptationStrategy": "1. Reconfigure()\n   StepBack()"
+    },
+    {
+      "id": "ar88",
+      "text": "AR2: NotTrendDecrease(7d,2)",
+      "type": "indicator",
+      "x": 630,
+      "y": 298,
+      "adaptationStrategy": "1. Reconfigure()"
+    },
+    {
+      "id": "ar87",
+      "text": "AR1: SuccessRate(90%)",
+      "type": "indicator",
+      "x": 643,
+      "y": 145,
+      "adaptationStrategy": "1. Reconfigure()"
+    },
+    {
+      "id": "dt86",
+      "text": "Check Calendar\nUpdate Date",
+      "type": "designTask",
+      "x": 573,
+      "y": 746
+    },
+    {
+      "id": "ar85",
+      "text": "AR4: SuccessRate(90%,1M)",
+      "type": "indicator",
+      "x": 618,
+      "y": 711,
+      "adaptationStrategy": "1. RelaxReplace(AR4, AR4_85%)\n2. Delegate(CompanyManager)"
+    },
+    {
+      "id": "dq83",
+      "text": "Pentaho",
+      "type": "designConstraint",
+      "x": 1855,
+      "y": 618
+    },
+    {
+      "id": "dq82",
+      "text": "Dynamic Reports",
+      "type": "designConstraint",
+      "x": 1849,
+      "y": 707
+    },
+    {
+      "id": "dq81",
+      "text": "Jasper Reports",
+      "type": "designConstraint",
+      "x": 1714,
+      "y": 655
+    },
+    {
+      "id": "dq80",
+      "text": "Use Report Library",
+      "type": "designConstraint",
+      "x": 1719,
+      "y": 564
+    },
+    {
+      "id": "dt79",
+      "text": "Reset Password",
+      "type": "designTask",
+      "x": 1338,
+      "y": 212
+    },
+    {
+      "id": "dt78",
+      "text": "Logout",
+      "type": "designTask",
+      "x": 1208,
+      "y": 231
+    },
+    {
+      "id": "dt77",
+      "text": "Login",
+      "type": "designTask",
+      "x": 1101,
+      "y": 178
+    },
+    {
+      "id": "dt76",
+      "text": "Manage Access",
+      "type": "designTask",
+      "x": 1230,
+      "y": 120
+    },
+    {
+      "id": "dq75",
+      "text": "Distribute\nApplication Server",
+      "type": "designConstraint",
+      "x": 1542,
+      "y": 304
+    },
+    {
+      "id": "dq74",
+      "text": "Response Time < 2s",
+      "type": "designConstraint",
+      "x": 1428,
+      "y": 158
+    },
+    {
+      "id": "dq73",
+      "text": "GWT",
+      "type": "designConstraint",
+      "x": 1863,
+      "y": 542
+    },
+    {
+      "id": "dq72",
+      "text": "JSF",
+      "type": "designConstraint",
+      "x": 1769,
+      "y": 496
+    },
+    {
+      "id": "dq71",
+      "text": "JSP",
+      "type": "designConstraint",
+      "x": 1709,
+      "y": 449
+    },
+    {
+      "id": "dq70",
+      "text": "Web Based Systems",
+      "type": "designConstraint",
+      "x": 1860,
+      "y": 388
+    },
+    {
+      "id": "dq69",
+      "text": "Native Clients",
+      "type": "designConstraint",
+      "x": 1716,
+      "y": 382
+    },
+    {
+      "id": "dq68",
+      "text": "Client-Server System",
+      "type": "designConstraint",
+      "x": 1801,
+      "y": 310
+    },
+    {
+      "id": "dq66",
+      "text": "NoSQL",
+      "type": "designConstraint",
+      "x": 1848,
+      "y": 245
+    },
+    {
+      "id": "dq65",
+      "text": "MySQL",
+      "type": "designConstraint",
+      "x": 1762,
+      "y": 195
+    },
+    {
+      "id": "dq64",
+      "text": "Database",
+      "type": "designConstraint",
+      "x": 1860,
+      "y": 120
+    },
+    {
+      "id": "dq63",
+      "text": "Files",
+      "type": "designConstraint",
+      "x": 1717,
+      "y": 128
+    },
+    {
+      "id": "dq62",
+      "text": "Persistence",
+      "type": "designConstraint",
+      "x": 1827,
+      "y": 45
+    },
+    {
+      "id": "dq61",
+      "text": "Availability of\nService > 90%",
+      "type": "designConstraint",
+      "x": 1098,
+      "y": 756
+    },
+    {
+      "id": "dq60",
+      "text": "Use Web Services",
+      "type": "designConstraint",
+      "x": 1087,
+      "y": 631
+    },
+    {
+      "id": "dq59",
+      "text": "Scheduling done\nin under 10 minutes",
+      "type": "designConstraint",
+      "x": 1000,
+      "y": 684
+    },
+    {
+      "id": "dt58",
+      "text": "Process\nCharacterization",
+      "type": "designTask",
+      "x": 431,
+      "y": 216
+    },
+    {
+      "id": "dt57",
+      "text": "BREAD Rooms",
+      "type": "designTask",
+      "x": 1410,
+      "y": 619
+    },
+    {
+      "id": "dt56",
+      "text": "Setup Google\nCalendar Credential",
+      "type": "designTask",
+      "x": 1353,
+      "y": 684
+    },
+    {
+      "id": "dt55",
+      "text": "BREAD Users",
+      "type": "designTask",
+      "x": 1253,
+      "y": 636
+    },
+    {
+      "id": "dt54",
+      "text": "Select Date",
+      "type": "designTask",
+      "x": 918,
+      "y": 631
+    },
+    {
+      "id": "dt53",
+      "text": "Heuristics-based\nAlgorithm",
+      "type": "designTask",
+      "x": 845,
+      "y": 584
+    },
+    {
+      "id": "dt52",
+      "text": "Brute Force\nAlgorithm",
+      "type": "designTask",
+      "x": 819,
+      "y": 530
+    },
+    {
+      "id": "dt51",
+      "text": "Input Chosen Date",
+      "type": "designTask",
+      "x": 775,
+      "y": 655
+    },
+    {
+      "id": "dt50",
+      "text": "View Collective\nTimetable",
+      "type": "designTask",
+      "x": 651,
+      "y": 570
+    },
+    {
+      "id": "dt49",
+      "text": "Collect from\nGoogle Calendar",
+      "type": "designTask",
+      "x": 496,
+      "y": 589
+    },
+    {
+      "id": "dt48",
+      "text": "Process Timetable",
+      "type": "designTask",
+      "x": 414,
+      "y": 699
+    },
+    {
+      "id": "dt47",
+      "text": "Receive Timetable",
+      "type": "designTask",
+      "x": 299,
+      "y": 752
+    },
+    {
+      "id": "dt46",
+      "text": "Remind Participants",
+      "type": "designTask",
+      "x": 226,
+      "y": 683
+    },
+    {
+      "id": "dt45",
+      "text": "Request Timetables\nby Email",
+      "type": "designTask",
+      "x": 216,
+      "y": 613
+    },
+    {
+      "id": "dt44",
+      "text": "Input Participants\nAvailability",
+      "type": "designTask",
+      "x": 217,
+      "y": 551
+    },
+    {
+      "id": "dt43",
+      "text": "Contact Participants",
+      "type": "designTask",
+      "x": 182,
+      "y": 497,
+      "assignment": "Secretary;Meeting Organizer"
+    },
+    {
+      "id": "dt42",
+      "text": "Input Required\nEquipments",
+      "type": "designTask",
+      "x": 368,
+      "y": 329
+    },
+    {
+      "id": "dt41",
+      "text": "Get List of Available\nEquipments",
+      "type": "designTask",
+      "x": 280,
+      "y": 386
+    },
+    {
+      "id": "dt40",
+      "text": "Select Participants",
+      "type": "designTask",
+      "x": 202,
+      "y": 334
+    },
+    {
+      "id": "dt39",
+      "text": "Get List of Users",
+      "type": "designTask",
+      "x": 119,
+      "y": 286
+    },
+    {
+      "id": "dt38",
+      "text": "Display List of\nAvailable Rooms",
+      "type": "designTask",
+      "x": 128,
+      "y": 408
+    },
+    {
+      "id": "dt37",
+      "text": "Get List of\nAvailable Rooms",
+      "type": "designTask",
+      "x": 15,
+      "y": 461
+    },
+    {
+      "id": "a36",
+      "text": "Rooms Available",
+      "type": "domainAssumption",
+      "x": 1135,
+      "y": 578
+    },
+    {
+      "id": "a35",
+      "text": "Calendars\nUp to Date",
+      "type": "domainAssumption",
+      "x": 592,
+      "y": 642
+    },
+    {
+      "id": "q34",
+      "text": "System Accessible via\nPC and Smartphone",
+      "type": "quality",
+      "x": 1658,
+      "y": 251
+    },
+    {
+      "id": "q33",
+      "text": "Portability",
+      "type": "quality",
+      "x": 1582,
+      "y": 68
+    },
+    {
+      "id": "q32",
+      "text": "Scalability",
+      "type": "quality",
+      "x": 1381,
+      "y": 81
+    },
+    {
+      "id": "q31",
+      "text": "Characterization done\nin under 5 minutes",
+      "type": "quality",
+      "x": 478,
+      "y": 155
+    },
+    {
+      "id": "q30",
+      "text": "Usability",
+      "type": "quality",
+      "x": 453,
+      "y": 82
+    },
+    {
+      "id": "t29",
+      "text": "See Meetings Report",
+      "type": "task",
+      "x": 1646,
+      "y": 702
+    },
+    {
+      "id": "t28",
+      "text": "See Scheduling\nReport",
+      "type": "task",
+      "x": 1561,
+      "y": 751
+    },
+    {
+      "id": "t27",
+      "text": "See Room Usage\nReport",
+      "type": "task",
+      "x": 1496,
+      "y": 684
+    },
+    {
+      "id": "g26",
+      "text": "See Report",
+      "type": "goal",
+      "x": 1574,
+      "y": 499,
+      "flow": "(t27|t28|t29)"
+    },
+    {
+      "id": "t25",
+      "text": "Manage Rooms",
+      "type": "task",
+      "x": 1434,
+      "y": 542,
+      "flow": "dt57"
+    },
+    {
+      "id": "t24",
+      "text": "Manage Users",
+      "type": "task",
+      "x": 1285,
+      "y": 520,
+      "flow": "(dt55 dt56)"
+    },
+    {
+      "id": "t23",
+      "text": "Change Participants",
+      "type": "task",
+      "x": 1249,
+      "y": 387
+    },
+    {
+      "id": "t22",
+      "text": "Change Room",
+      "type": "task",
+      "x": 1224,
+      "y": 463
+    },
+    {
+      "id": "t21",
+      "text": "Change Date",
+      "type": "task",
+      "x": 1103,
+      "y": 421
+    },
+    {
+      "id": "g20",
+      "text": "Change Details",
+      "type": "goal",
+      "x": 1116,
+      "y": 321,
+      "flow": "(t21|t22|t23)"
+    },
+    {
+      "id": "t19",
+      "text": "Notify Participants",
+      "type": "task",
+      "x": 965,
+      "y": 409
+    },
+    {
+      "id": "t18",
+      "text": "Confirm Occurrence",
+      "type": "task",
+      "x": 853,
+      "y": 374
+    },
+    {
+      "id": "t17",
+      "text": "Cancel Meeting",
+      "type": "task",
+      "x": 782,
+      "y": 316
+    },
+    {
+      "id": "t16",
+      "text": "Schedule\nAutomatically",
+      "type": "task",
+      "x": 962,
+      "y": 482,
+      "flow": "((dt52|dt53) dt54)"
+    },
+    {
+      "id": "t15",
+      "text": "Schedule Manually",
+      "type": "task",
+      "x": 691,
+      "y": 497,
+      "flow": "(dt50? dt51)"
+    },
+    {
+      "id": "t14",
+      "text": "Collect\nAutomatically",
+      "type": "task",
+      "x": 537,
+      "y": 487,
+      "flow": "(dt49 dt86)"
+    },
+    {
+      "id": "t13",
+      "text": "Collect by Email",
+      "type": "task",
+      "x": 402,
+      "y": 539,
+      "flow": "dt45"
+    },
+    {
+      "id": "t12",
+      "text": "Collect by Phone",
+      "type": "task",
+      "x": 327,
+      "y": 444,
+      "flow": "dt44"
+    },
+    {
+      "id": "t11",
+      "text": "Define Required\nEquipments",
+      "type": "task",
+      "x": 293,
+      "y": 247,
+      "flow": "(dt41 dt42)"
+    },
+    {
+      "id": "t10",
+      "text": "Define Participants",
+      "type": "task",
+      "x": 173,
+      "y": 205,
+      "flow": "(dt39 dt40)"
+    },
+    {
+      "id": "t9",
+      "text": "See Available\nRooms",
+      "type": "task",
+      "x": 7,
+      "y": 328,
+      "flow": "(dt37 dt38)"
+    },
+    {
+      "id": "t8",
+      "text": "Define Date Range",
+      "type": "task",
+      "x": 18,
+      "y": 208
+    },
+    {
+      "id": "t7",
+      "text": "Define Topics",
+      "type": "task",
+      "x": 15,
+      "y": 137
+    },
+    {
+      "id": "g6",
+      "text": "Administer System",
+      "type": "goal",
+      "x": 1416,
+      "y": 382,
+      "flow": "(i5 (t24|t25|g26))"
+    },
+    {
+      "id": "g5",
+      "text": "Manage Meeting",
+      "type": "goal",
+      "x": 892,
+      "y": 255,
+      "flow": "(i4 ((t17 t19)|t18|(g20 t19)))"
+    },
+    {
+      "id": "g4",
+      "text": "Define Schedule",
+      "type": "goal",
+      "x": 689,
+      "y": 389,
+      "flow": "(t15|t16)"
+    },
+    {
+      "id": "g3",
+      "text": "Collect Timetables",
+      "type": "goal",
+      "x": 549,
+      "y": 331,
+      "flow": "(t12|t13|t14)"
+    },
+    {
+      "id": "g2",
+      "text": "Characterize\nMeeting",
+      "type": "goal",
+      "x": 187,
+      "y": 56,
+      "flow": "(t7 t10 t8 t11? t9? dt58)\n((dt39 dt41 dt37)-(t7 dt40 t8 dt42? dt38? dt58))"
+    },
+    {
+      "id": "g1",
+      "text": "Schedule Meeting",
+      "type": "goal",
+      "x": 566,
+      "y": 17,
+      "flow": "((i6 (dt77|(dt79 dt77)) (i1 (g2|g3|g4|g5|g6|dt78)))*-(i2 dt46)*-(i3 dt47 dt48)*)"
+    }
+  ],
+  "links": [
+    {
+      "from": "g2",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "g3",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "g4",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "g5",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "g6",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "t7",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "t8",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "t9",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "t10",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "t11",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "t12",
+      "to": "g3",
+      "type": "orArrow"
+    },
+    {
+      "from": "t13",
+      "to": "g3",
+      "type": "orArrow"
+    },
+    {
+      "from": "t14",
+      "to": "g3",
+      "type": "orArrow"
+    },
+    {
+      "from": "t15",
+      "to": "g4",
+      "type": "andArrow"
+    },
+    {
+      "from": "t16",
+      "to": "g4",
+      "type": "andArrow"
+    },
+    {
+      "from": "t17",
+      "to": "g5",
+      "type": "andArrow"
+    },
+    {
+      "from": "t18",
+      "to": "g5",
+      "type": "andArrow"
+    },
+    {
+      "from": "t19",
+      "to": "g5",
+      "type": "andArrow"
+    },
+    {
+      "from": "g20",
+      "to": "g5",
+      "type": "andArrow"
+    },
+    {
+      "from": "t21",
+      "to": "g20",
+      "type": "andArrow"
+    },
+    {
+      "from": "t22",
+      "to": "g20",
+      "type": "andArrow"
+    },
+    {
+      "from": "t23",
+      "to": "g20",
+      "type": "andArrow"
+    },
+    {
+      "from": "t24",
+      "to": "g6",
+      "type": "andArrow"
+    },
+    {
+      "from": "t25",
+      "to": "g6",
+      "type": "andArrow"
+    },
+    {
+      "from": "g26",
+      "to": "g6",
+      "type": "andArrow"
+    },
+    {
+      "from": "t27",
+      "to": "g26",
+      "type": "andArrow"
+    },
+    {
+      "from": "t28",
+      "to": "g26",
+      "type": "andArrow"
+    },
+    {
+      "from": "t29",
+      "to": "g26",
+      "type": "andArrow"
+    },
+    {
+      "from": "q30",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "q31",
+      "to": "q30",
+      "type": "andArrow"
+    },
+    {
+      "from": "q32",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "q33",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "q34",
+      "to": "q33",
+      "type": "andArrow"
+    },
+    {
+      "from": "a35",
+      "to": "t14",
+      "type": "andArrow"
+    },
+    {
+      "from": "a36",
+      "to": "t16",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt37",
+      "to": "t9",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt38",
+      "to": "t9",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt39",
+      "to": "t10",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt40",
+      "to": "t10",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt41",
+      "to": "t11",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt42",
+      "to": "t11",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt43",
+      "to": "t12",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt44",
+      "to": "t12",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt45",
+      "to": "t13",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt46",
+      "to": "t13",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt47",
+      "to": "t13",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt48",
+      "to": "t13",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt49",
+      "to": "t14",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt50",
+      "to": "t15",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt51",
+      "to": "t15",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt52",
+      "to": "t16",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt53",
+      "to": "t16",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt54",
+      "to": "t16",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt55",
+      "to": "t24",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt56",
+      "to": "t24",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt57",
+      "to": "t25",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt58",
+      "to": "g2",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq59",
+      "to": "t16",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq60",
+      "to": "t16",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq61",
+      "to": "dq60",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq62",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq63",
+      "to": "dq62",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq64",
+      "to": "dq62",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq65",
+      "to": "dq64",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq66",
+      "to": "dq64",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq68",
+      "to": "q34",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq69",
+      "to": "dq68",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq70",
+      "to": "dq68",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq71",
+      "to": "dq70",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq72",
+      "to": "dq70",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq73",
+      "to": "dq70",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq74",
+      "to": "q32",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq75",
+      "to": "dq74",
+      "type": "orArrow"
+    },
+    {
+      "from": "dt76",
+      "to": "g1",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt77",
+      "to": "dt76",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt78",
+      "to": "dt76",
+      "type": "andArrow"
+    },
+    {
+      "from": "dt79",
+      "to": "dt76",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq80",
+      "to": "g26",
+      "type": "andArrow"
+    },
+    {
+      "from": "dq81",
+      "to": "dq80",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq82",
+      "to": "dq80",
+      "type": "orArrow"
+    },
+    {
+      "from": "dq83",
+      "to": "dq80",
+      "type": "orArrow"
+    },
+    {
+      "from": "ar85",
+      "to": "a35",
+      "type": "line"
+    },
+    {
+      "from": "dt86",
+      "to": "ar85",
+      "type": "line"
+    },
+    {
+      "from": "ar87",
+      "to": "q31",
+      "type": "line"
+    },
+    {
+      "from": "ar88",
+      "to": "g3",
+      "type": "line"
+    },
+    {
+      "from": "ar89",
+      "to": "g4",
+      "type": "line"
+    },
+    {
+      "from": "ar90",
+      "to": "a36",
+      "type": "line"
+    },
+    {
+      "from": "ar91",
+      "to": "t19",
+      "type": "line"
+    },
+    {
+      "from": "ar92",
+      "to": "g2",
+      "type": "line"
+    },
+    {
+      "from": "ar93",
+      "to": "dt77",
+      "type": "line"
+    },
+    {
+      "from": "a94",
+      "to": "dq74",
+      "type": "orArrow"
+    },
+    {
+      "from": "ar95",
+      "to": "dq74",
+      "type": "line"
+    },
+    {
+      "from": "p96",
+      "to": "g3",
+      "type": "line"
+    },
+    {
+      "from": "p97",
+      "to": "t14",
+      "type": "line"
+    },
+    {
+      "from": "p98",
+      "to": "t16",
+      "type": "line"
+    },
+    {
+      "from": "p99",
+      "to": "t16",
+      "type": "line"
+    },
+    {
+      "from": "p100",
+      "to": "dq60",
+      "type": "line"
+    },
+    {
+      "from": "ar101",
+      "to": "dq61",
+      "type": "line"
+    },
+    {
+      "from": "p102",
+      "to": "g2",
+      "type": "line"
+    },
+    {
+      "from": "p103",
+      "to": "dt46",
+      "type": "line"
+    },
+    {
+      "from": "p104",
+      "to": "t16",
+      "type": "line"
+    }
+  ],
+  "tool": "mulas-1"
+}
