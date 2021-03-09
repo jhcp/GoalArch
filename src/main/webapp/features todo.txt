@@ -1,0 +1,6 @@
+undo
+press enter to close modals
+save/load model
+save as png
+when deleting an element, delete the entire subtree
+do not flash the "add element" buttons when moving between the element and its buttons
