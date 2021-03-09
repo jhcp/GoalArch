@@ -16,11 +16,15 @@ import domain.Statechart;
 		)
 public class StatechartService extends HttpServlet {
 
+	private static final long serialVersionUID = -428907158413512193L;
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException {
 
 		String flowExpression = request.getParameter("flowExpression").trim().replace("\"", "");
+		flowExpression = flowExpression.replaceAll("%3F", "?");
+		System.out.println("Received flow expression: " + flowExpression);
 		
 		EvalMapping mapping = EvalMapping.deriveStatechart(flowExpression);
 	    Statechart statechart = new Statechart();
