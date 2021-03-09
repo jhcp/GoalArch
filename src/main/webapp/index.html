@@ -1,143 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset='iso-8859-1'>
-	<title>GATO: Goal-Arch Tool</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="João Pimentel">
-	
-	<!-- Le styles -->
-	<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<style>
-#world { 
-	height:500px;
+<meta charset='utf-8'>
+<title>GATO: Goal-Arch Tool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="JoÃ£o Pimentel">
+
+<!-- Le styles -->
+<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+<style>
+#world {
+	height: 500px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
 }
-svg { 
-	border:solid lightgray 2px;
+
+svg {
+	border: solid lightgray 2px;
 }
+
 body {
 	padding-bottom: 40px;
 }
 
 .nav {
-	margin-bottom:0px;
+	margin-bottom: 0px;
 }
 
 #mainToolbar {
-	margin-left:0px;
-	margin-top:5px;
-	width:100%;
-	border:1px solid lightgray;
+	margin-left: 0px;
+	margin-top: 5px;
+	width: 100%;
+	border: 1px solid lightgray;
 }
-.toolbar-title
-{
-	background-color:rgb(153,153,153);//#2c2c2c;
-	color:white;
+
+.toolbar-title {
+	background-color: rgb(153, 153, 153);
+	color: white;
 	font-weight: bold;
-	padding:3px;
+	padding: 3px;
 }
-.toolbar-content
-{
-	background-color:whiteSmoke;
-	padding:10px;
-	border:1px solid rgb(200,200,200);
+
+.toolbar-content {
+	background-color: whiteSmoke;
+	padding: 10px;
+	border: 1px solid rgb(200, 200, 200);
 }
 
 #shortcuts {
-		margin-right:10%;
-		margin-bottom:0;
-	}
+	margin-right: 10%;
+	margin-bottom: 0;
+}
+
 #shortcuts li {
-	padding-left:20px;
+	padding-left: 20px;
 }
 
 .alert {
-	margin-bottom:0;
+	margin-bottom: 0;
 }
 
 #alerts {
-	margin-left:0px;
+	margin-left: 0px;
 }
 
-textarea
-{
-  width:80%;
-  margin-left:8%;
+textarea {
+	width: 80%;
+	margin-left: 8%;
 }
 
 #derivationDiv, #alternativeBehaviorRefinements, #adaptationDiv {
-	padding:10px;
+	padding: 10px;
 }
+
 #indicators, #parameters {
-	padding-left:10px;
-	//margin-left:10px;
+	padding-left: 10px;
 }
-#derivationSettings label{
-	margin-left:10px;
+
+#derivationSettings label {
+	margin-left: 10px;
 }
+
 #statechart {
-	border:1px solid rgb(200,200,200);
+	border: 1px solid rgb(200, 200, 200);
 	border-radius: 10px;
-	padding:10px;
+	padding: 10px;
 }
-	</style>
-	<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="lib/x-editable/bootstrap-editable.css" rel="stylesheet">
-	
+</style>
+<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="lib/x-editable/bootstrap-editable.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-	<div class="navbar navbar-inverse navbar-static-top">  <!-- navbar-fixed-top  -->
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">GATO </a><!-- Goal &rarr; Arch -->
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="about.html">About</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-	
+	<div class="navbar navbar-inverse navbar-static-top">
+		<!-- navbar-fixed-top  -->
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#">GATO </a>
+				<!-- Goal &rarr; Arch -->
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
 	<div class="row-fluid">
 		<!-- <div class="span1"></div> -->
 		<div class="span12 well well-small">
-		<ul id="modelingModeList" class="nav nav-pills">
-		  <li class="dropdown" id="viewsButton">
-			<a class="dropdown-toggle"
-       data-toggle="dropdown"
-       href="#">
-        1) Views <span id="currentViewName"></span>
-        <b class="caret"></b>
-      </a>
-    <ul class="dropdown-menu">
-      <li id="buttonRequirementsMode" content="Requirements"><a href="#">Requirements</a></li>
-      <li id="buttonDesignMode" content="Design"><a href="#">Design</a></li>
-      <li id="buttonDelegationMode" content="Delegation"><a href="#">Delegation</a></li>
-      <li id="buttonAnnotationMode" content="Behavior"><a href="#">Behavior refinement</a></li>
-    </ul></li>
-		  <!--<li class="active" id="buttonRequirementsMode"><a href="#">1) Requirements </a></li>
-		  <li id="buttonDesignMode"><a href="#">2) Design</a></li>
-		  <li id="buttonDelegationMode"><a href="#">3) Delegation</a></li>
-		  <li id="buttonAnnotationMode"><a href="#">4) Behavior refinement</a></li>
-			-->
-		  <li id="buttonAdaptationMode"><a href="#">2) Adaptation specification</a></li>
-		  <li id="buttonDerivationMode"><a href="#">3) Derivation</a></li>
-		  <li id="buttonTransitionsMode"><a href="#">4) Transitions</a></li>
-		</ul></div>
-	
+			<ul id="modelingModeList" class="nav nav-pills">
+				<li class="dropdown" id="viewsButton"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> 1)
+						Views <span id="currentViewName"></span> <b class="caret"></b>
+				</a>
+					<ul class="dropdown-menu">
+						<li id="buttonRequirementsMode" data-content="Requirements"><a
+							href="#">Requirements</a></li>
+						<li id="buttonDesignMode" data-content="Design"><a href="#">Design</a></li>
+						<li id="buttonDelegationMode" data-content="Delegation"><a
+							href="#">Delegation</a></li>
+						<li id="buttonAnnotationMode" data-content="Behavior"><a
+							href="#">Behavior refinement</a></li>
+					</ul></li>
+
+				<li id="buttonAdaptationMode"><a href="#">2) Adaptation
+						specification</a></li>
+				<li id="buttonDerivationMode"><a href="#">3) Derivation</a></li>
+				<li id="buttonTransitionsMode"><a href="#">4) Transitions</a></li>
+			</ul>
+		</div>
+
 	</div>
 
 	<div id="world" class="panel"></div>
@@ -145,91 +148,106 @@ textarea
 		<div class="row-fluid">
 			<div id="derivationSettings" class="span5">
 				Select alternative behavior refinements:<br />
-				<div id="alternativeBehaviorRefinements">
-				
-				
-				</div>
-				<button id="buttonDeriveStatechart" class="btn btn-primary" onclick="processSelectionOfAlternatives();">Derive statechart</button>
-				<div id="combinedExpression">
-				</div>
-			</div>	
+				<div id="alternativeBehaviorRefinements"></div>
+				<button id="buttonDeriveStatechart" class="btn btn-primary"
+					onclick="processSelectionOfAlternatives();">Derive
+					statechart</button>
+				<div id="combinedExpression"></div>
+			</div>
 			<div class="span6">
 				<h4>Statechart</h4>
-				<div id="statechart">     
-				</div>
+				<div id="statechart"></div>
 			</div>
 		</div>
 	</div>
 	<div id="adaptationDiv">
 		<div class="row-fluid">
 			<div class="span7">
-				<div id="indicators">
-					
-				</div>
+				<div id="indicators"></div>
 
-			</div>	
+			</div>
 			<div class="span5">
-				<div id="parameters">
-				
-				</div>
+				<div id="parameters"></div>
 			</div>
 		</div>
 	</div>
 	<div id="transitionsDiv">
 		<div class="row-fluid">
 			<div class="span7">
-				<div id="transitions">
-					
-				</div>
+				<div id="transitions"></div>
 
-			</div>	
+			</div>
 		</div>
 	</div>
-	
-	<div id="alerts" class="row row-fluid">
-	</div>
+
+	<div id="alerts" class="row row-fluid"></div>
 	<!-- toolbar -->
 	<div id="mainToolbar" class="toolbar row">
-		<div id="mainToolbarTitle"   class="toolbar-title"> &nbsp;&nbsp;Toolbar</div>
+		<div id="mainToolbarTitle" class="toolbar-title">
+			&nbsp;&nbsp;Toolbar</div>
 		<div id="mainToolbarContent" class="toolbar-content">
-			<button id="toolbarToggleId" class="btn title="Show/hide the IDs of each element" data-toggle="button"><i class="icon-eye-open"></i> Show IDs </button>
-			<button id="toolbarToggleAdaptationElements" class="btn title="Show/hide awareness requirements and parameters" data-toggle="button"><i class="icon-eye-open"></i> Show Adaptation Elements </button>
-			<button id="toolbarAnalyzeModel" class="btn title="Analyzes this goal model"><i class="icon-check"></i> Analyze model </button>
+			<button id="toolbarToggleId" class="btn"
+				title="Show/hide the IDs of each element" data-toggle="button">
+				<i class="icon-eye-open"></i> Show IDs
+			</button>
+			<button id="toolbarToggleAdaptationElements" class="btn"
+				title="Show/hide awareness requirements and parameters"
+				data-toggle="button">
+				<i class="icon-eye-open"></i> Show Adaptation Elements
+			</button>
+			<button id="toolbarAnalyzeModel" class="btn"
+				title="Analyzes this goal model">
+				<i class="icon-check"></i> Analyze model
+			</button>
 			<br />
-			<button id="toolbarSaveModel" class="btn" title="Save this goal model as a TXT file"><i class="icon-download"></i> Save model </button>
+			<button id="toolbarSaveModel" class="btn"
+				title="Save this goal model as a TXT file">
+				<i class="icon-download"></i> Save model
+			</button>
 			<!--<button id="toolbarSaveModel" class="btn" data-toggle="modal" href="#saveModelModal" title="Save this goal model as a JSON file"><i class="icon-download"></i> Save model </button>-->
-			<button id="toolbarLoadModel" class="btn" data-toggle="modal" href="#loadModelModal" title="Load a goal model from a JSON file created with this tool"><i class="icon-upload"></i> Load model </button>
-			<button class="btn" data-toggle="modal" href="#resizeAreaModal" title="Change the size of the drawing area"><i class="icon-resize-full"></i> Resize area </button>
-			<button id="toolbarClearModel" class="btn" title="Erases this goal model"><i class="icon-trash"></i> Clear </button>
+			<button id="toolbarLoadModel" class="btn" data-toggle="modal"
+				data-target="#loadModelModal"
+				title="Load a goal model from a JSON file created with this tool">
+				<i class="icon-upload"></i> Load model
+			</button>
+			<button class="btn" data-toggle="modal" data-toggle="modal"
+				data-target="#resizeAreaModal"
+				title="Change the size of the drawing area">
+				<i class="icon-resize-full"></i> Resize area
+			</button>
+			<button id="toolbarClearModel" class="btn"
+				title="Erases this goal model">
+				<i class="icon-trash"></i> Clear
+			</button>
 			<br />
-			<button id="toolbarSaveSVG" class="btn" title="Save the current view of this goal model as a SVG file"><i class="icon-picture"></i> Save SVG  &nbsp;</button>
-			<button id="toolbarCreateMetamodel" class="btn" title="Zanshin Metamodel"><i class="icon-glass"></i> Metamodel  &nbsp;</button>
-		
-			<!--<button class="btn" href="#" onclick="savePNG();" title="Save this decision tree as a PNG file"><i class="icon-picture"></i> Save PNG</button><br />
-			<br>
-			<button class="btn" data-toggle="modal" href="#runJavascriptModal" title="Run your custom javascript like a plugin"><i class="icon-wrench"></i> Run plugin</button><br />
-			-->
-  <!--  <a href="#" onclick="blackAndWhite();">B&W</a><br /> -->
+			<button id="toolbarSaveSVG" class="btn"
+				title="Save the current view of this goal model as a SVG file">
+				<i class="icon-picture"></i> Save SVG &nbsp;
+			</button>
+			<button id="toolbarCreateMetamodel" class="btn"
+				title="Zanshin Metamodel">
+				<i class="icon-glass"></i> Metamodel &nbsp;
+			</button>
 		</div>
 	</div>
-	
+
 	<div class="modal hide fade in" id="saveModelModal">
 		<div class="modal-header">
-			<button class="close" data-dismiss="modal">×</button>
+			<button class="close" data-dismiss="modal">Ã—</button>
 			<h3>Save goal model as JSON</h3>
 		</div>
 		<div class="modal-body">
 			<p>Copy the text below, paste it in a text editor and save it.</p>
-			<textarea id="saveModelContent" autofocus="" rows="10" cols="50"></textarea>
+			<textarea id="saveModelContent" rows="10" cols="50"></textarea>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn" data-dismiss="modal">Close</a>
+			<button type="button" class="btn" data-dismiss="modal">Close</button>
 		</div>
-	</div>	
-	
+	</div>
+
 	<div class="modal hide fade in" id="loadModelModal">
 		<div class="modal-header">
-			<button class="close" data-dismiss="modal">×</button>
+			<button class="close" data-dismiss="modal">Ã—</button>
 			<h3>Load goal model from JSON</h3>
 		</div>
 		<div class="modal-body">
@@ -240,43 +258,49 @@ textarea
   alert('The File APIs are not fully supported by your browser.');
 }
 			-->
-			<input type="file" id="actualFileInput" name="file" />
-			<br />
+			<input type="file" id="actualFileInput" name="file" /> <br />
 			<p>Or paste the content of your model into the textarea below.</p>
-			<textarea id="loadModelContent" autofocus="" rows="10" cols="50"></textarea>
-			
+			<textarea id="loadModelContent" rows="10" cols="50"></textarea>
+
 		</div>
 		<div class="modal-footer">
 			<!--<span class="pull-left" id="loadingStatus">Loading...</span>-->
-			<button id="loadButton" type="button" class="btn btn-primary" data-loading-text="Loading...">Load model</button>
-			<button type="button" class="btn" data-dismiss="modal">Cancel</a>
+			<button id="loadButton" type="button" class="btn btn-primary"
+				data-loading-text="Loading...">Load model</button>
+			<button type="button" class="btn" data-dismiss="modal">Cancel</button>
 		</div>
-	</div>	
-	
+	</div>
+
 	<div class="modal hide fade in" id="resizeAreaModal">
 		<div class="modal-header">
-			<button class="close" data-dismiss="modal">×</button>
+			<button class="close" data-dismiss="modal">Ã—</button>
 			<h3>Resize drawing area</h3>
 		</div>
 		<div class="modal-body">
-			<p>Width:
-				<input id="newAreaWidth" type="text" autofocus="">
+			<p>
+				Width: <input id="newAreaWidth" type="text">
 			</p>
-			<p>Height:
-				<input id="newAreaHeight" type="text">
+			<p>
+				Height: <input id="newAreaHeight" type="text">
 			</p>
-			<br /><p><i>Please note that if you save/load this model you may need to resize the drawing area again</i></p>
+			<br />
+			<p>
+				<i>Please note that if you save/load this model you may need to
+					resize the drawing area again</i>
+			</p>
 		</div>
 		<div class="modal-footer">
-			<button id="resizePaper" type="button" class="btn btn-primary" data-dismiss="modal" >Resize</a>
-			<button type="button" class="btn" data-dismiss="modal">Cancel</a>
+			<button id="resizePaper" type="button" class="btn btn-primary"
+				data-dismiss="modal">Resize</button>
+			<button type="button" class="btn" data-dismiss="modal">Cancel</button>
 		</div>
-	</div>	
+	</div>
 
 	<script src="lib/raphael.1.5.2.js" type="text/javascript"></script>
-	<script src="lib/jointSource/joint.js" type="text/javascript"></script> 
+	<script src="lib/jointSource/joint.js" type="text/javascript"></script>
 	<script src="lib/jointSource/joint.dia.js" type="text/javascript"></script>
-	<script src="lib/jointSource/joint.dia.serializer.js" type="text/javascript"></script>
+	<script src="lib/jointSource/joint.dia.serializer.js"
+		type="text/javascript"></script>
 	<script src="joint.dia.extra.js" type="text/javascript"></script>
 	<script src="lib/jquery.1.9.min.js" type="text/javascript"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -286,7 +310,8 @@ textarea
 	<script src="derivation.js" type="text/javascript"></script>
 	<script src="diagramManager.js" type="text/javascript"></script>
 	<script src="ui.js" type="text/javascript"></script>
-	<script src="lib/x-editable/bootstrap-editable.min.js" type="text/javascript"></script>
+	<script src="lib/x-editable/bootstrap-editable.min.js"
+		type="text/javascript"></script>
 
 </body>
 </html>

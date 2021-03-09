@@ -323,8 +323,8 @@ function changeListSelection(listId, selectionObject) {
 	$(selectionObject).toggleClass('active');
 
 	//update the name of the view
-	if ($(selectionObject).attr('content')) {
-		$('#currentViewName').html('[' + $(selectionObject).attr('content') + ']');
+	if ($(selectionObject).attr('data-content')) {
+		$('#currentViewName').html('[' + $(selectionObject).attr('data-content') + ']');
 		
 		//if a view was selected, also activate the views button
 		$('#viewsButton').toggleClass('active');

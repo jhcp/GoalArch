@@ -1,276 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset='iso-8859-1'>
-	<title>GATO: Goal to Arch tool - About</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="João Pimentel">
-	
-	<!-- Le styles -->
-	<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<style>
-#world { 
-	border:solid lightgray 2px;
-	height:500px;
+<meta charset="utf-8">
+<title>GATO: Goal to Arch tool - About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="JoÃ£o Pimentel">
+
+<!-- Le styles -->
+<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+<style>
+#world {
+	border: solid lightgray 2px;
+	height: 500px;
 }
+
 body {
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
 
 .nav {
-	margin-bottom:0px;
+	margin-bottom: 0px;
 }
+
 .addDecisionButton {
 	background: url('images/ui-addButton-24x24.png');
-	color:white;
+	color: white;
 	height: 24px;
 	width: 24px;
 	position: absolute;
-	opacity:1;
-	filter:alpha(opacity=0); /* For IE8 and earlier */
-	
-	-moz-transition:opacity 0.4s ease;
-	-o-transition:opacity .4s ease;
-	-webkit-transition:opacity .4s ease;
+	opacity: 1;
+	filter: alpha(opacity = 0); /* For IE8 and earlier */
+	transition: opacity 0.4s ease;
+	-moz-transition: opacity 0.4s ease;
+	-o-transition: opacity .4s ease;
+	-webkit-transition: opacity .4s ease;
 }
-#buttonsPanel
-{
-	position:absolute;
-	top:5px;
-	right:5px;
+
+#buttonsPanel {
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
-.panelTitle
-{
-	opacity:1;
-	background-color:#2c2c2c;
-	color:white;
+
+.panelTitle {
+	opacity: 1;
+	background-color: #2c2c2c;
+	color: white;
 	font-weight: bold;
-	padding:3px;
+	padding: 3px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
-.panelContent
-{
-	opacity:1;
-	background-color:whiteSmoke;
-	padding:10px;
-	border:1px solid rgb(200,200,200);
+
+.panelContent {
+	opacity: 1;
+	background-color: whiteSmoke;
+	padding: 10px;
+	border: 1px solid rgb(200, 200, 200);
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-
-	-moz-transition:opacity 0.4s ease;
-	-o-transition:opacity .4s ease;
-	-webkit-transition:opacity .4s ease;
+	transition: opacity 0.4s ease;
+	-moz-transition: opacity 0.4s ease;
+	-o-transition: opacity .4s ease;
+	-webkit-transition: opacity .4s ease;
 }
 
 #shortcuts {
-		margin-right:10%;
-		margin-bottom:0;
-	}
+	margin-right: 10%;
+	margin-bottom: 0;
+}
+
 #shortcuts li {
-	padding-left:20px;
+	padding-left: 20px;
 }
 
 .alert {
-	margin-bottom:0;
+	margin-bottom: 0;
 }
 
 #alerts {
-	margin-left:0px;
+	margin-left: 0px;
 }
 
 .row-fluid {
-	margin-top:30px;
+	margin-top: 30px;
 }
-	</style>
-	<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-	
+</style>
+<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-	<div class="navbar navbar-inverse navbar-fixed-top">  <!-- navbar-fixed-top  -->
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">GATO</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="#about">About</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-	
-	 <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2">
-         <!--  <div class="span3">
-		 <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div> --><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <div class="hero-unit">
-            <h1>GATO (Goal &rarr; Arch)</h1>
-            <p>This is a prototype tool developed to evaluate a framework for deriving architectural models from requirements models. It is a prototype, so please proceed with caution and report any bugs you find.</p>
-            <p><a href="https://github.com/jhcp/GoalArch" class="btn btn-primary btn-large disabled">Learn more &raquo;</a></p>
-          </div>
-          <div class="row-fluid">
-		  
-            <div class="span6">
-              <h2>Edit it</h2>
-              <p>The edition of the goal model is based on <b>pointing the mouse over </b> an element of the model. As you point it, buttons related to that element will appear, so that you can add new elements. Alternatively, you can point the element and press one of the shortcuts.</p>	
-            </div><!--/span-->
-			
-			
-			
-            <div class="span6">
-              <h2>Keyboard Shortcuts</h2>
-              <p>
-			  <ul class="unstyled">
-
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<!-- navbar-fixed-top  -->
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#">GATO</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="#about">About</a></li>
 					</ul>
-					 <span id="shortcuts" class="alert alert-info pull-left">
-					<ul class="unstyled">
-						<li><b>g:</b> add goal</li>
-						<li><b>t:</b> add task/design task</li>
-						<li><b>q:</b> add quality constraint / design constraint </li>
-						<li><b>a:</b> add domain assumption / design assumption </li>
-						<li><b>i:</b> add indicator</li>
-						<li><b>p:</b> add parameter</li>
-						<li><b>e:</b> edit text / assignment / flow expression</li>
-						<li><b>o:</b> toggle and/or (buggy)</li>
-						<li><b>d:</b> delete </li>
-					</ul>
-				  </span>
-			  </p>
-            </div><!--/span-->
-			
-           
-		  </div><!--/row-->
-          <div class="row-fluid well">
-		  
-            <div class="span4">
-              <h2>Requirements</h2>
-              <p>In the requirements mode, you can add/remove goals, tasks, quality constraints, and domain assumptions. </p>
-            </div><!--/span-->
-			
-            <div class="span4">
-              <h2>Design</h2>
-              <p>Here you can add/remove design tasks, design constraints, and design assumptions. In other words, elements that are not requirements themselves, but are relevant for the system design. </p>
-            </div><!--/span-->
-			
-            <div class="span4">
-              <h2>Behavior</h2>
-              <p>In the behavior mode you cannot edit the model itself, just the flow expressions of the elements. To edit the flow expression of a element, point the mouse over the element and press 'e'.</p>
-            </div><!--/span-->
-          
-		  </div>
-		  <div class="row-fluid">
-          
-		  <div class="span4">
-              <h2>Full screen</h2>
-              <p>To make the most of the tool, press F11 and run the browser in full screen mode.</p>
-            </div><!--/span-->
-          
-		  
-            <div class="span8">
-              <h2>Key</h2>
-              <p><img src="images/key.png" /> </p>
-            </div><!--/span-->
-
-          </div><!--/row-->
-		  
-		  <div class="row-fluid">
-			<div class="span4">
-              <h2>Save as SVG</h2>
-              <p>When you click in the 'Save SVG' button, a new window will pop-up with your model. Then, right-click on the model and go for 'Save as...' to actually
-			  save it to your hard-disk.</p>
-            </div><!--/span-->
-			<div class="span4">
-              <h2>Line breaks</h2>
-              <p>You like your texts big, but they don't fit the element's shape? Try using a dot ('.') when writing the text to include a line break at that point</p>
-            </div><!--/span-->
-			<div class="span4">
-              <h2>Browsers</h2>
-              <p>Tested with Chrome, Firefox and Internet Explorer. Even though it works in all these browsers, the performance is greatly better with Chrome.</p>
-			  <p>Currently, the 'Save SVG' feature is not supported in Internet Explorer.</p>
-            </div><!--/span-->
-            
-
-          </div><!--/row-->
-		  
-		  <div class="row-fluid">
-		  
-		    <div class="span6">
-              <h2>Analyze it</h2>
-              <p>By clicking the Analyze Model button in the toolbar you can find out: </p>
-			  <ul>
-				<li>Goals that were not refined</li>
-				<li>Leaf tasks that were not included in the flow expressions</li>
-			  </ul>
-			  The elements with these problems will be briefly highlighted; in the bottom of the window you will find the result of the analysis. 
-            </div><!--/span-->
-			
-            <div class="span6">
-              <h2>Statechart</h2>
-              <p>The diagrammatic version of the derived statechart is still incomplete: it doesn't show superstates.</p>
-              <p>For running simulations with statecharts we recommend the <a href="http://statecharts.org/">Yakindu Statechart Tool</a>.</p>
+				</div>
+				<!--/.nav-collapse -->
 			</div>
-			
-		  </div>
-			
-			<div class="row-fluid">
-            <div class="span8">
-              <h2>About</h2>
-              <p>The following open-source libraries and frameworks are used in this tool:</p>
-							<ul>
-								<li><strong><a href="http://www.jointjs.com/">JointJS</a> - </strong>provides the core modeling functionalities</li>
-								<li><strong><a href="http://getbootstrap.com/2.3.2/">Bootstrap 2.3.2</a> - </strong>professional-looking style and components</li>
-								<li><strong><a href="http://jquery.com/">jQuery</a> - </strong>facilitates DOM manipulation and cross-browser support</li>
-								<li><strong><a href="http://vitalets.github.io/x-editable/index.html">X-editable</a> - </strong>enables inline editing of DOM elements</li>
-								<li><strong><a href="http://knsv.github.io/mermaid/">Mermaid</a> - </strong>draws the statechart diagram</li>
-								<li><strong><a href="http://www.sablecc.org/">SableCC</a> - </strong>parser generator that was used to implement the statechart derivation</li>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2"></div>
+			<div class="span9">
+				<div class="hero-unit">
+					<h1>GATO (Goal &rarr; Arch)</h1>
+					<p>This is a prototype tool developed to evaluate a framework
+						for deriving architectural models from requirements models. It is
+						a prototype, so please proceed with caution and report any bugs
+						you find.</p>
+					<p>
+						<a href="https://github.com/jhcp/GoalArch"
+							class="btn btn-primary btn-large disabled">Learn more &raquo;</a>
+					</p>
+				</div>
+				<div class="row-fluid">
+
+					<div class="span6">
+						<h2>Edit it</h2>
+						<p>
+							The edition of the goal model is based on <b>pointing the
+								mouse over </b> an element of the model. As you point it, buttons
+							related to that element will appear, so that you can add new
+							elements. Alternatively, you can point the element and press one
+							of the shortcuts.
+						</p>
+					</div>
+					<!--/span-->
+
+
+
+					<div class="span6">
+						<h2>Keyboard Shortcuts</h2>
+
+						<ul class="unstyled">
+
+						</ul>
+						<div id="shortcuts" class="alert alert-info pull-left">
+							<ul class="unstyled">
+								<li><b>g:</b> add goal</li>
+								<li><b>t:</b> add task/design task</li>
+								<li><b>q:</b> add quality constraint / design constraint</li>
+								<li><b>a:</b> add domain assumption / design assumption</li>
+								<li><b>i:</b> add indicator</li>
+								<li><b>p:</b> add parameter</li>
+								<li><b>e:</b> edit text / assignment / flow expression</li>
+								<li><b>o:</b> toggle and/or (buggy)</li>
+								<li><b>d:</b> delete</li>
 							</ul>
-			</div>
+						</div>
 
-          </div><!--/row-->
-		  
-		  <div class="row-fluid">
-		  <!-- <blockquote>
-  <p>Don't you think that blockquotes look beautiful?</p>
-  <small>Me, <cite title="Source Title">Here</cite></small>
-</blockquote> -->
-</div>
-        </div><!--/span-->
-      </div><!--/row-->
-	
-		
+					</div>
+					<!--/span6-->
+
+
+				</div>
+				<!--/row-->
+				<div class="row-fluid well">
+
+					<div class="span4">
+						<h2>Requirements</h2>
+						<p>In the requirements mode, you can add/remove goals, tasks,
+							quality constraints, and domain assumptions.</p>
+					</div>
+					<!--/span-->
+
+					<div class="span4">
+						<h2>Design</h2>
+						<p>Here you can add/remove design tasks, design constraints,
+							and design assumptions. In other words, elements that are not
+							requirements themselves, but are relevant for the system design.
+						</p>
+					</div>
+					<!--/span-->
+
+					<div class="span4">
+						<h2>Behavior</h2>
+						<p>In the behavior mode you cannot edit the model itself, just
+							the flow expressions of the elements. To edit the flow expression
+							of a element, point the mouse over the element and press 'e'.</p>
+					</div>
+					<!--/span-->
+
+				</div>
+				<div class="row-fluid">
+
+					<div class="span4">
+						<h2>Full screen</h2>
+						<p>To make the most of the tool, press F11 and run the browser
+							in full screen mode.</p>
+					</div>
+					<!--/span-->
+
+
+					<div class="span8">
+						<h2>Key</h2>
+						<p>
+							<img src="images/key.png" />
+						</p>
+					</div>
+					<!--/span-->
+
+				</div>
+				<!--/row-->
+
+				<div class="row-fluid">
+					<div class="span4">
+						<h2>Save as SVG</h2>
+						<p>When you click in the 'Save SVG' button, a new window will
+							pop-up with your model. Then, right-click on the model and go for
+							'Save as...' to actually save it to your hard-disk.</p>
+					</div>
+					<!--/span-->
+					<div class="span4">
+						<h2>Line breaks</h2>
+						<p>You like your texts big, but they don't fit the element's
+							shape? Try using a dot ('.') when writing the text to include a
+							line break at that point</p>
+					</div>
+					<!--/span-->
+					<div class="span4">
+						<h2>Browsers</h2>
+						<p>Tested with Chrome, Firefox and Internet Explorer. Even
+							though it works in all these browsers, the performance is greatly
+							better with Chrome.</p>
+						<p>Currently, the 'Save SVG' feature is not supported in
+							Internet Explorer.</p>
+					</div>
+					<!--/span-->
+
+
+				</div>
+				<!--/row-->
+
+				<div class="row-fluid">
+
+					<div class="span6">
+						<h2>Analyze it</h2>
+						<p>By clicking the Analyze Model button in the toolbar you can
+							find out:</p>
+						<ul>
+							<li>Goals that were not refined</li>
+							<li>Leaf tasks that were not included in the flow
+								expressions</li>
+						</ul>
+						The elements with these problems will be briefly highlighted; in
+						the bottom of the window you will find the result of the analysis.
+					</div>
+					<!--/span-->
+
+					<div class="span6">
+						<h2>Statechart</h2>
+						<p>The diagrammatic version of the derived statechart is still
+							incomplete: it doesn't show superstates.</p>
+						<p>
+							For running simulations with statecharts we recommend the <a
+								href="http://statecharts.org/">Yakindu Statechart Tool</a>.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="row-fluid">
+					<div class="span8">
+						<h2>About</h2>
+						<p>The following open-source libraries and frameworks are used
+							in this tool:</p>
+						<ul>
+							<li><strong><a href="http://www.jointjs.com/">JointJS</a>
+									- </strong>provides the core modeling functionalities</li>
+							<li><strong><a
+									href="http://getbootstrap.com/2.3.2/">Bootstrap 2.3.2</a> - </strong>professional-looking
+								style and components</li>
+							<li><strong><a href="http://jquery.com/">jQuery</a>
+									- </strong>facilitates DOM manipulation and cross-browser support</li>
+							<li><strong><a
+									href="http://vitalets.github.io/x-editable/index.html">X-editable</a>
+									- </strong>enables inline editing of DOM elements</li>
+							<li><strong><a
+									href="http://knsv.github.io/mermaid/">Mermaid</a> - </strong>draws the
+								statechart diagram</li>
+							<li><strong><a href="http://www.sablecc.org/">SableCC</a>
+									- </strong>parser generator that was used to implement the statechart
+								derivation</li>
+						</ul>
+					</div>
+
+				</div>
+				<!--/row-->
+
+				<div class="row-fluid"></div>
+			</div>
+			<!--/span-->
+		</div>
+		<!--/row-->
+	</div>
+
+
 </body>
 </html>
