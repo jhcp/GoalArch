@@ -110,8 +110,6 @@ function createDelegation(node) {
 			.translate(bb.x + 15, bb.y + bb.height/2 + 1);
 	}
 
-//	console.log(node);
-
 	for (j in node.innerNoDrag) {
 		node.innerNoDrag[j].hide();
 	}
@@ -274,7 +272,6 @@ function processAnnotations() {
 			count: numberOfTasksNotIncluded});
 	}
 	warnings.push({text: 'number of elements', count: numberOfElements, type: 'info'});
-	console.log(warnings);
 	displayWarning(warnings);
 
 	//clean up

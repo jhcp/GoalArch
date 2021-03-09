@@ -1,4 +1,4 @@
-// Extension of Joint.dia developed by Jo„o Pimentel
+// Extension of Joint.dia developed by Jo√£o Pimentel
 	
 	//Features for the diagram as a whole
 	
@@ -14,7 +14,6 @@
 	};
 	Joint.dia.eachJoint = function (callback, args) {
 		for (joint in this._registeredJoints[1]) {
-			//console.log(this);
 			callback.call(this._registeredJoints[1][joint], this._registeredJoints[1][joint]);
 		}
 	};

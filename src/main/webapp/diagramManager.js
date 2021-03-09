@@ -41,7 +41,6 @@ $(document).ready(function () {
 
 	var diagramManager = {
 		changeView: function (viewNumber) {
-			var start = new Date;
 			goalModel.mode = viewNumber;
 			Joint.dia.each(function () {
 				if (this.properties.object != 'indicator' && this.properties.object != 'parameter') {
@@ -77,8 +76,6 @@ $(document).ready(function () {
 					}
 				}
 			});
-			var totalTime = new Date - start;
-			console.log('time to switch view: ' + totalTime);
 		},
 		changeToRequirements: function () {
 			diagramManager.changeView(goalModel.MODE_REQUIREMENTS);
@@ -170,7 +167,6 @@ $(document).ready(function () {
 					});
 				}
 			});
-			console.log(indicators.length);
 			return indicators.sort(sortObjectsByName);
 		},
 		setIndicatorAdaptationStrategy: function (index, content) {
@@ -388,7 +384,7 @@ $(document).ready(function () {
 
 				Joint.dia.hardReset();
 				createButtons();
-				console.log('elementCounter: ' + goalModel.elementCounter);
+				
 				goalModel.elementCounter = 0;
 				var elements = [];
 				
@@ -460,7 +456,6 @@ $(document).ready(function () {
 							}
 							var object = Joint.dia._registeredObjects[1][to].joint(Joint.dia._registeredObjects[1][from], linkType);
 							if (inputModel.links[i].label) {
-								console.log(inputModel.links[i].label)
 								object.label(inputModel.links[i].label);
 							}
 							

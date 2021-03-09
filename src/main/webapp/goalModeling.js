@@ -301,7 +301,6 @@ function nodeHoverOut()
 	}
 }
 function dragStart(x,y,e){
-	console.log('dragStart');
 	for (i in hoverButtons) {
 		hoverButtons[i].hide();
 	}
@@ -381,14 +380,12 @@ $(document).ready(function () {
 	createButtons();
 	
 	//CREATE BASIC MODEL
-	var start = new Date;
 	var goal = goalModel.createStandaloneNode({x:305,y:50, annotation:''}, goalModel.nodeCreators.goal, 'g1');
 	goal.changeLabel('Hi, I\'m a goal!\nPoint at me =)');
 	//var t1 = goalModel.createStandaloneNode({x:500,y:120, annotation:'dt8|dt9'}, goalModel.nodeCreators.task, 't1'); t1.changeLabel('Bake');	
 	//var joint = goal.joint(t1, Joint.dia.goal.andArrow);
 	//joint._opt.label="opa";
 	//joint.label(0, { attrs: { text: { text: 'my label' } } })
-	//console.log(joint);
 	//joint.label('teste');
 	/*
 	var g1 = goalModel.createStandaloneNode({x:305,y:20, annotation:'g2 g3? t4'}, goalModel.nodeCreators.goal, 'g1'); g1.changeLabel('Make Pizza');
@@ -418,8 +415,6 @@ $(document).ready(function () {
 	g2.joint(ar1, Joint.dia.goal.line);	
 	*/
 
-	var totalTime = new Date - start;
-//	console.log(totalTime);
 	// diagramManager.changeToRequirements();
 	//diagramManager.changeToDesign();//jump to design, just for facilitating testing
 	console.log('Hi there! This is a prototype tool. Please be gentle =)');
@@ -460,7 +455,6 @@ $(document).keypress(function(e) {
 				if (goalModel.previouslyHighlightedNode == null) {
 					goalModel.previouslyHighlightedNode = goalModel.highlightedNode;
 				} else {
-					console.log('criar contribution link');
 					goalModel.highlightedNode.joint(goalModel.previouslyHighlightedNode, Joint.dia.goal.hurt);
 					goalModel.previouslyHighlightedNode = null;
 				}
@@ -470,7 +464,6 @@ $(document).keypress(function(e) {
 				if (goalModel.previouslyHighlightedNode == null) {
 					goalModel.previouslyHighlightedNode = goalModel.highlightedNode;
 				} else {
-					console.log('criar contribution link');
 					goalModel.highlightedNode.joint(goalModel.previouslyHighlightedNode, Joint.dia.goal.help);
 					goalModel.previouslyHighlightedNode = null;
 				}
@@ -505,9 +498,6 @@ var leafTasks;
 function findLeafTasks() {
 	leafTasks = [];
 	Joint.dia.each(isLeafTask);
-	
-	console.log('leaf tasks: ');
-	console.log(leafTasks);
 }
 function isLeafTask() {
 	if (this.properties.object==goalModel.TYPE_TASK

@@ -1,15 +1,6 @@
 var transitions = null;
-function getStatechart2(flowExpression) {
-	$.ajax({
-		url: 'http://localhost:8080/hello',
-		success: function(data) {
-			console.log(data);
-			$('#statechart').html(data);
-		}
-	});
-}
+
 function getStatechart(flowExpression) {
-	console.log(flowExpression);
 	$.ajax({
 		//url: 'http://localhost:8080/Test/rest/statechart/"'+flowExpression+'"',
 		//url: 'http://localhost:8888/rest/statechart/"'+flowExpression+'"',
@@ -51,16 +42,16 @@ function getStatechart(flowExpression) {
 			
 			//rename states
 			Joint.dia.each(function() {
-				console.log(this.properties.content + '(' + this.properties.name + ')');
+				//console.log(this.properties.content + '(' + this.properties.name + ')');
 				for (j in transitions) {
-					console.log('aaaa: '+transitions[j]);
-					console.log('regex: ' + '\\('+this.properties.name+'\\)');
+					//console.log('aaaa: '+transitions[j]);
+					//console.log('regex: ' + '\\('+this.properties.name+'\\)');
 					transitions[j] = transitions[j].replace(new RegExp( '\\('+this.properties.name+'\\)', 'g' ), '('+this.properties.content+' - '+this.properties.name+')');
 					transitions[j] = transitions[j].replace(new RegExp( '\\n', 'g' ), ' ');
 					//if (transitions[j].contains this.properties.name) {
 						//transitions[j] = this.properties.content + ',' + this.properties.name + ',';
 					//}
-					console.log('bbbb: '+transitions[j]);
+					//console.log('bbbb: '+transitions[j]);
 				}
 			});
 			for (j in transitions) {
@@ -83,7 +74,6 @@ function getStatechart(flowExpression) {
 		error: function(data){
 			$('#statechart').html('Sorry, some error occurred when connecting to servers');
 			console.log('error');
-			console.log(data);
 		}
 	});
 }
@@ -165,5 +155,4 @@ function deriveXorStates() {
 		xorStates[counter] = xorState;
 		counter++;
 	}
-	console.log(xorStates);
 }

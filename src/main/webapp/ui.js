@@ -75,7 +75,6 @@ $(document).ready(function () {
 		var parameters = diagramManager.listParameters();
 		$.each(parameters, function(index, value){
 			parametersHtml += '<tr><td>' + value.name + '</td><td><a class="editable editable-parameter" data-pk="' + value.index + '" href="#" data-type="textarea">' + value.range + '</a></td></tr>';
-			// console.log(index);
 		});
 		parametersHtml += '</table>';
 		$('#parameters').html(parametersHtml);
@@ -175,7 +174,6 @@ $(document).ready(function () {
 				else {
 					//else, load model from file
 					var file = $('#actualFileInput')[0].files[0];
-					console.log("Type: " + file.type)
 					if (file.type == 'text/plain') {
 						var fileReader = new FileReader();
 						fileReader.onload = function(e) { 
@@ -255,7 +253,6 @@ $(document).ready(function () {
 					if (goalModel.previouslyHighlightedNode == null) {
 						goalModel.previouslyHighlightedNode = goalModel.highlightedNode;
 					} else {
-						console.log('criar contribution link');
 						goalModel.highlightedNode.joint(goalModel.previouslyHighlightedNode, Joint.dia.goal.hurt);
 						goalModel.previouslyHighlightedNode = null;
 					}
@@ -265,7 +262,6 @@ $(document).ready(function () {
 					if (goalModel.previouslyHighlightedNode == null) {
 						goalModel.previouslyHighlightedNode = goalModel.highlightedNode;
 					} else {
-						console.log('criar contribution link');
 						goalModel.highlightedNode.joint(goalModel.previouslyHighlightedNode, Joint.dia.goal.help);
 						goalModel.previouslyHighlightedNode = null;
 					}
