@@ -189,13 +189,6 @@ $(document).ready(function () {
 			Joint.dia.getElementByIndex(index).properties.range = content;
 		},
 		saveModel: function() {
-			//curently using the default saving from Joint JS
-			var stringifiedModel = Joint.dia.stringify(Joint.paper());
-			console.log(stringifiedModel);
-			
-			return stringifiedModel;
-		},
-		saveModel2: function() {
 			var size = goalModel.getSize();
 			var modelJson = {width: size.width, height: size.height, elements: [], links: [], tool: 'mulas-1'};
 			
@@ -236,8 +229,9 @@ $(document).ready(function () {
 				modelJson.links.push(joint);
 			});
 			
+			
+			
 			var stringifiedModel = JSON.stringify(modelJson, null, 2);
-			window.open("data:text/json;charset=utf-8," + escape(stringifiedModel));
 			console.log(stringifiedModel);;
 			return stringifiedModel;
 		},

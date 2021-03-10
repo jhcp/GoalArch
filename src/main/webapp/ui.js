@@ -129,7 +129,9 @@ $(document).ready(function () {
 		//window.scrollTo(0, document.body.scrollHeight);
 	});
 	$('#toolbarSaveModel').click(function() {
-		$('#saveModelContent').text(diagramManager.saveModel2());
+		model = diagramManager.saveModel();
+		var csvData = 'data:text/json;charset=utf-8,' + (encodeURI(model));
+    	Joint.dia.downloadDataUri(csvData, 'gato-GoalModel.txt');
 	});
 	$('#toolbarClearModel').click(function() {
 		goalModel.clearPaper();
