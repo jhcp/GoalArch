@@ -325,6 +325,36 @@ $(document).ready(function () {
 			
 			return "data:image/svg+xml," + encodeURIComponent(text);
 		},
+		savePng: function (callback, filename, resolutionFactor, transparent) {
+            //create a canvas, which is used to convert the SVG to png
+            var canvas = document.createElement('canvas');
+            var canvasContext = canvas.getContext('2d');
+
+            //create a img (DOM element) with the SVG content from our paper. This element will later be inserted in the canvas for converting to PNG
+            var imageElement = new Image();
+            $('svg').attr('width', $('#world').width());
+            $('svg').attr('height', $('#world').height());
+            var text = (new XMLSerializer()).serializeToString(document.getElementById("world").childNodes[0]);
+            $('svg').attr('width', '100%');
+            $('svg').attr('height', '100%');
+            imageElement.src = "data:image/svg+xml," + encodeURIComponent(text);
+
+            imageElement.onload = function () {
+                canvas.width = imageElement.width * resolutionFactor; //multiply the width for better resolution
+                canvas.height = imageElement.height * resolutionFactor; //multiply the height for better resolution
+                if ( !transparent ) {
+                    //fill the canvas with a color
+                    canvasContext.fillStyle = 'white';
+                    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+                }
+                canvasContext.drawImage(imageElement, 0, 0, canvas.width, canvas.height);//insert the SVG image into the canvas. This does the actual rasterization of the image
+
+                canvas.toBlob(function (blob) {
+                    callback(blob, filename + '.png');
+                });
+
+            };
+        },
 		load: function(input) {
 			if (input) {
 				this.changedModel = true;

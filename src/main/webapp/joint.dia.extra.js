@@ -93,7 +93,7 @@
 		//Copied from a more recent version of JointJS
 		
         var blob = dataUriToBlob(dataUri);
-        downloadBlob(blob, fileName);
+        Joint.dia.downloadBlob(blob, fileName);
         
         // Convert an uri-encoded data component (possibly also base64-encoded) to a blob.
         function dataUriToBlob(dataUri) {
@@ -124,32 +124,36 @@
             return new Blob([ia], { type: mimeString }); // return the typed array as Blob
         }
         
+        
+    }
+    
+    Joint.dia.downloadBlob = function(blob, fileName) {
         // Download `blob` as file with `fileName`.
         // Does not work in IE9.
-        function downloadBlob(blob, fileName) {
+        
+        //Copied from a more recent version of JointJS
 
-            if (window.navigator.msSaveBlob) { // requires IE 10+
-                // pulls up a save dialog
-                window.navigator.msSaveBlob(blob, fileName);
+        if (window.navigator.msSaveBlob) { // requires IE 10+
+            // pulls up a save dialog
+            window.navigator.msSaveBlob(blob, fileName);
 
-            } else { // other browsers
-                // downloads directly in Chrome and Safari
+        } else { // other browsers
+            // downloads directly in Chrome and Safari
 
-                // presents a save/open dialog in Firefox
-                // Firefox bug: `from` field in save dialog always shows `from:blob:`
-                // https://bugzilla.mozilla.org/show_bug.cgi?id=1053327
+            // presents a save/open dialog in Firefox
+            // Firefox bug: `from` field in save dialog always shows `from:blob:`
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=1053327
 
-                var url = window.URL.createObjectURL(blob);
-                var link = document.createElement('a');
+            var url = window.URL.createObjectURL(blob);
+            var link = document.createElement('a');
 
-                link.href = url;
-                link.download = fileName;
-                document.body.appendChild(link);
+            link.href = url;
+            link.download = fileName;
+            document.body.appendChild(link);
 
-                link.click();
+            link.click();
 
-                document.body.removeChild(link);
-                window.URL.revokeObjectURL(url); // mark the url for garbage collection
-            }
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url); // mark the url for garbage collection
         }
     }
