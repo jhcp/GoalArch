@@ -144,10 +144,13 @@ function createAnnotation(node) {
 		idCircle: node.paper.circle(bb.x+5, bb.y+bb.height-5, 15).attr({ fill: 'white', 'stroke-width': 2 }),
 		idLabel: node.paper.text(bb.x+5, bb.y + bb.height-5, node.properties.name).attr({'font-family': 'Arial', 'font-size': '12px'}),
 	}
-
+	
+	resizeAnnotation(node);
+	
 	for (j in node.innerNoDrag) {
 		node.innerNoDrag[j].hide();
 	}
+	
 	return node;
 }
 
@@ -170,18 +173,19 @@ function editAnnotation() {
 			this.innerNoDrag.annotation.hide();
 		}
 		
-		
-		//resize the background element of the annotation
-		var elementBB = this.wrapper.getBBox();
-		var annotationBB = this.innerNoDrag.annotation[0].getBBox();
-		this.innerNoDrag.annotationBg.attr('height', annotationBB.height + 6);
-		this.innerNoDrag.annotationBg.attr('width', annotationBB.width + 10);
-		this.innerNoDrag.annotationBg.attr('x', elementBB.x + elementBB.width/2 - annotationBB.width/2 - 5);
-		this.innerNoDrag.annotationBg.attr('y', elementBB.y - annotationBB.height - 3);
-		this.innerNoDrag.annotation.attr('y', elementBB.y - annotationBB.height/2);
-		
-		console.log('xxx edit annotation');
+		resizeAnnotation(this);
 	}
+}
+
+function resizeAnnotation(node) {
+	//resize the background element of the annotation
+	var elementBB = node.wrapper.getBBox();
+	var annotationBB = node.innerNoDrag.annotation[0].getBBox();
+	node.innerNoDrag.annotationBg.attr('height', annotationBB.height + 6);
+	node.innerNoDrag.annotationBg.attr('width', annotationBB.width + 10);
+	node.innerNoDrag.annotationBg.attr('x', elementBB.x + elementBB.width/2 - annotationBB.width/2 - 5);
+	node.innerNoDrag.annotationBg.attr('y', elementBB.y - annotationBB.height - 3);
+	node.innerNoDrag.annotation.attr('y', elementBB.y - annotationBB.height/2);
 }
 
 

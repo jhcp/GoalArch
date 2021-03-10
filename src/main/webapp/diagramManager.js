@@ -353,59 +353,6 @@ $(document).ready(function () {
 
             };
         },
-		load: function(input) {
-			if (input) {
-				this.changedModel = true;
-
-				Joint.dia.hardReset();
-				createButtons();
-				elementCounter = 1;
-				var loadedObjects = Joint.dia.parse(input);
-
-				for(i=0; i<loadedObjects.length; i++) {
-					if (loadedObjects[i].properties && loadedObjects[i].properties.object) {
-						if (loadedObjects[i].properties.object == goalModel.TYPE_GOAL) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.goal);
-							createAnnotation(loadedObjects[i]);
-							createDelegation(loadedObjects[i]);
-						}
-						else if (loadedObjects[i].properties.object == goalModel.TYPE_TASK) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.task);
-							createAnnotation(loadedObjects[i]);
-							createDelegation(loadedObjects[i]);
-						}
-						else if (loadedObjects[i].properties.object == goalModel.TYPE_QUALITY) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.quality);
-							createAnnotation(loadedObjects[i]);
-							createDelegation(loadedObjects[i]);
-						}
-						
-						else if (loadedObjects[i].properties.object == TYPE_DESIGN_TASK) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.designTask);
-							createAnnotation(loadedObjects[i]);
-							createDelegation(loadedObjects[i]);
-						}
-						else if (loadedObjects[i].properties.object == TYPE_DESIGN_CONSTRAINT) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.designConstraint);
-							createAnnotation(loadedObjects[i]);
-							createDelegation(loadedObjects[i]);
-						}
-						else if (loadedObjects[i].properties.object == TYPE_INDICATOR) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.indicator);
-						}
-						else if (loadedObjects[i].properties.object == TYPE_PARAMETER) {
-							goalModel.setupUiForNode.call(loadedObjects[i], goalModel.nodeCreators.parameter);
-						}
-						
-						elementCounter++;
-						
-					 }
-				}
-				
-				this.changeToRequirements();
-
-			}
-		},
 		load2: function(inputText) {
 			if (inputText) {
 				this.changedModel = true;
