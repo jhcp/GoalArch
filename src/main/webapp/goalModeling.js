@@ -384,18 +384,19 @@ $(document).ready(function () {
 	createButtons();
 	
 	//CREATE BASIC MODEL
-	var goal = goalModel.createStandaloneNode({x:305,y:50, annotation:''}, goalModel.nodeCreators.goal, 'g1');
-	goal.changeLabel('Hi, I\'m a goal!\nPoint at me =)');
+	//var goal = goalModel.createStandaloneNode({x:305,y:50, annotation:''}, goalModel.nodeCreators.goal, 'g1');
+	//goal.changeLabel('Hi, I\'m a goal!\nPoint at me =)');
+	
 	//var t1 = goalModel.createStandaloneNode({x:500,y:120, annotation:'dt8|dt9'}, goalModel.nodeCreators.task, 't1'); t1.changeLabel('Bake');	
 	//var joint = goal.joint(t1, Joint.dia.goal.andArrow);
 	//joint._opt.label="opa";
 	//joint.label(0, { attrs: { text: { text: 'my label' } } })
 	//joint.label('teste');
-	/*
-	var g1 = goalModel.createStandaloneNode({x:305,y:20, annotation:'g2 g3? t4'}, goalModel.nodeCreators.goal, 'g1'); g1.changeLabel('Make Pizza');
-	var g2 = goalModel.createStandaloneNode({x:90,y:120, annotation:'t6 t7'}, goalModel.nodeCreators.goal, 'g2'); g2.changeLabel('Make Dough');	
+	
+	var g1 = goalModel.createStandaloneNode({x:305,y:20, annotation:'g2 g3? t1'}, goalModel.nodeCreators.goal, 'g1'); g1.changeLabel('Make Pizza');
+	var g2 = goalModel.createStandaloneNode({x:90,y:120, annotation:'t2 t3'}, goalModel.nodeCreators.goal, 'g2'); g2.changeLabel('Make Dough');	
 	var g3 = goalModel.createStandaloneNode({x:300,y:120, annotation:''}, goalModel.nodeCreators.goal, 'g3'); g3.changeLabel('Make Topping');	
-	var t1 = goalModel.createStandaloneNode({x:500,y:120, annotation:'dt8|dt9'}, goalModel.nodeCreators.task, 't1'); t1.changeLabel('Bake');	
+	var t1 = goalModel.createStandaloneNode({x:500,y:120, annotation:'dt1|dt2'}, goalModel.nodeCreators.task, 't1'); t1.changeLabel('Bake');	
 	var q1 = goalModel.createStandaloneNode({x:350,y:220}, goalModel.nodeCreators.quality, 'q1'); q1.changeLabel('Good taste');	
 	var t2 = goalModel.createStandaloneNode({x:50,y:220}, goalModel.nodeCreators.task, 't2'); t2.changeLabel('Mix flour,\n water and yeast');
 	var t3 = goalModel.createStandaloneNode({x:200,y:240, delegation:'Assistent'}, goalModel.nodeCreators.task, 't3'); t3.changeLabel('Let it grow');
@@ -417,14 +418,13 @@ $(document).ready(function () {
 	t1.joint(p1, Joint.dia.goal.line);	
 	t1.joint(ar2, Joint.dia.goal.line);	
 	g2.joint(ar1, Joint.dia.goal.line);	
-	*/
+	
 
 	// diagramManager.changeToRequirements();
 	//diagramManager.changeToDesign();//jump to design, just for facilitating testing
-	console.log('Hi there! This is a prototype tool. Please be gentle =)');
-	console.log('Feel free to check out the source code. However, if you plan on using it or extending it, please contact me, I\'ll be glad to help.');
-	console.log('For contact info, please go to github.com/jhcp/GoalArch');
-	console.log('');
+	console.log('Hi there! This is a prototype tool. Please be gentle =) \n' +
+		'Feel free to check out the source code. However, if you plan on using it or extending it, please contact me, I\'ll be glad to help.\n\n' + 
+		'For contact info, please go to github.com/jhcp/GoalArch\n\n\n');
 });
 
 

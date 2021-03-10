@@ -28,8 +28,8 @@ public class StatechartService extends HttpServlet {
 		
 		EvalMapping mapping = EvalMapping.deriveStatechart(flowExpression);
 	    Statechart statechart = new Statechart();
-	    statechart.setExample(mapping.states);
-	    statechart.setTransitions(mapping.transitionsShaped);
+	    statechart.setAtomicStates(mapping.states);
+	    statechart.setTransitions(mapping.transitions);
 	    statechart.setDescription("Statechart generated with the GoalArch webservice");
 	    
 	    String statechartJsonString = new Gson().toJson(statechart);

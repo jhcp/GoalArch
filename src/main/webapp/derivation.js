@@ -11,17 +11,20 @@ function getStatechart(flowExpression) {
 			//$('div').html(data);
 			console.log('success');
 			console.log(data);
-			var text = '<b>XOR states:</b> ';
+			
+			// generate textual statechart description /////////////////////////////
+			var text = '<b>Super states (XOR):</b> ';
 			for (i in xorStates) {
 				text += xorStates[i] + ', ';
 			}
 			text = text.substr(0, text.lastIndexOf(','));
 			
 			text += '<br /><br /><b>Atomic states:</b> ';
-			for (i in data.example) {
-				text += data.example[i] + ', ';
+			for (i in data.atomicStates) {
+				text += data.atomicStates[i] + ', ';
 			}
 			text = text.substr(0, text.lastIndexOf(','));
+			
 			text += '<br /><br /><b>Transitions:</b> ';
 			var transitionsText = '';
 			transitions = data.transitions;
@@ -30,36 +33,47 @@ function getStatechart(flowExpression) {
 			}
 			transitionsText = transitionsText.substr(0, text.lastIndexOf(','));
 			text += transitionsText;
-			console.log(transitionsText);
+			console.log('TRANSITIONS:\n' + transitionsText);
 			
-			text += '<br /><br /><b>AND states:</b> ';
 			$('#statechart').html(text);
+			///////////////////////////////////////////////////////////////////////////////////////
 			
-			//generate diagram
-			var w = window.open();
-			w.document.open();
-			w.document.write('<html><body><script src="lib/mermaid0-3-0.full.js"></script><div class="mermaid">graph LR;');
+						
+			// generate statechart diagram ///////////////////////////////////
+			//replace start state name with the Mermaid symbol for start states
+			for (j = 0; j < transitions.length; j++) {
+				transitions[j] = transitions[j].replace('[start]', '[*]');
+			}
 			
-			//rename states
+			//create list of state names
+			var stateNames = '';
 			Joint.dia.each(function() {
-				//console.log(this.properties.content + '(' + this.properties.name + ')');
-				for (j in transitions) {
-					//console.log('aaaa: '+transitions[j]);
-					//console.log('regex: ' + '\\('+this.properties.name+'\\)');
-					transitions[j] = transitions[j].replace(new RegExp( '\\('+this.properties.name+'\\)', 'g' ), '('+this.properties.content+' - '+this.properties.name+')');
-					transitions[j] = transitions[j].replace(new RegExp( '\\n', 'g' ), ' ');
-					//if (transitions[j].contains this.properties.name) {
-						//transitions[j] = this.properties.content + ',' + this.properties.name + ',';
-					//}
-					//console.log('bbbb: '+transitions[j]);
+				if (data.atomicStates.includes(this.properties.name)) {
+					cleanStateName = this.properties.content.replace('\:', '').replace('\n', '');
+					stateNames += this.properties.name + ' : (' + this.properties.name + ') ' + cleanStateName + '\n';
 				}
 			});
+			
+			var graphDefinition = 'stateDiagram-v2\n';
 			for (j in transitions) {
-				w.document.write(transitions[j] + ';');
+				graphDefinition += transitions[j] + '\n';
 			}
-			//transitionsText + 
-			w.document.write('classDef default fill:#ffffff,stroke:#111,stroke-width:2px;</div>');
-			w.document.close();
+			graphDefinition += stateNames;
+			var graph = mermaid.mermaidAPI.render('graphDiv', graphDefinition, function(svg) {
+				$('#statechartDiagram').html(svg);
+			});
+			
+			///////////////////////////////////////////////////////////////////////////////////////
+			
+			
+			//replace states ids for their names, for the benefit of the "Transitions" tab
+			Joint.dia.each(function() {
+				for (j in transitions) {
+					transitions[j] = transitions[j].replace(new RegExp( this.properties.name, 'g' ), '(' + this.properties.name + ') ' + this.properties.content);
+					transitions[j] = transitions[j].replace(new RegExp( '\\n', 'g' ), ' ');
+				}
+			});
+			
 
 		},
 		beforeSend: function(xhr){
@@ -88,7 +102,6 @@ function deriveStatechart() {
 	//prepare expression to send to the server
 	combinedExpressions = combinedExpressions.replace(new RegExp( '\\*', 'g' ), '+?');
 	combinedExpressions = combinedExpressions.replace(new RegExp( '\\?', 'g' ), '%3F');
-	console.log(combinedExpressions);
 	
 	getStatechart(combinedExpressions);
 	

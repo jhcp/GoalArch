@@ -19,23 +19,17 @@ import analysis.DepthFirstAdapter;
 public class EvalMapping extends DepthFirstAdapter {
 	public Vector<String> states;
 	public Vector<String> transitions;
-	public Vector<String> transitionsShaped;
 	
 	
 	public EvalMapping() {
 		this.states = new Vector<String>();
 		this.transitions = new Vector<String>();
-		this.transitionsShaped = new Vector<String>();
 	}
 	
 	public void addTransition(String transition) {
 		//prevents duplicate transitions
 		if (!this.transitions.contains(transition)) {
-			System.out.println("novo metodo");
 			this.transitions.add(transition);
-			String[] splited = transition.split("-->");
-			this.transitionsShaped.add(splited[0] + "(" + splited[0] + ")-->" 
-					+ splited[1] + "(" + splited[1] + ")");
 		}
 	}
 
@@ -44,8 +38,7 @@ public class EvalMapping extends DepthFirstAdapter {
 		EvalFirstStates evalFirst = new EvalFirstStates(true);
 		node.apply(evalFirst);
 		for (String firstState : evalFirst.firstStates) {
-			//this.transitions.add("start-->" + firstState);
-			this.addTransition("start-->" + firstState);
+			this.addTransition("[start]-->" + firstState);
 		}
 	}
 //	public void inASequenceExp(ASequenceExp e) {

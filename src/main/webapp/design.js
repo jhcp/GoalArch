@@ -223,7 +223,6 @@ function combineExpressions() {
 	//Joint.dia.each(readAnnotation);
 	
 	combinedExpressions = getSubexpression(flowExpressions['g1']);
-	console.log('combined annotations (with substitution): ' + combinedExpressions);
 }
 
 var idRegex = new RegExp( '[A-z]+[0-9]+', 'g' );
