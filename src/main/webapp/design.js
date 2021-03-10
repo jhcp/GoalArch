@@ -140,9 +140,9 @@ function createAnnotation(node) {
 	var bb = node.wrapper.getBBox();
 	node.innerNoDrag = {
 		annotationBg: node.paper.rect(bb.x, bb.y-20, bb.width, 20, 0).attr({ fill: 'white', 'stroke-width': 1 }),
-		annotation: node.paper.text(bb.x + bb.width/2, bb.y - 10, node.properties.annotation).attr({'font': '14 "Courier"'}),
+		annotation: node.paper.text(bb.x + bb.width/2, bb.y - 10, node.properties.annotation).attr({'font-family': 'Courier', 'font-size': '13px'}),
 		idCircle: node.paper.circle(bb.x+5, bb.y+bb.height-5, 15).attr({ fill: 'white', 'stroke-width': 2 }),
-		idLabel: node.paper.text(bb.x+5, bb.y + bb.height-5, node.properties.name).attr({'font': '12 "Arial"'}),
+		idLabel: node.paper.text(bb.x+5, bb.y + bb.height-5, node.properties.name).attr({'font-family': 'Arial', 'font-size': '12px'}),
 	}
 
 	for (j in node.innerNoDrag) {
@@ -155,6 +155,7 @@ function createAnnotation(node) {
 function editAnnotation() {
 	//small trick to handle linebreaks on a javascript prompt
 	var newText = window.prompt('Edit flow expression', this.properties.annotation.replace(new RegExp( '\n', 'g' ), '.'));  //convert all linebreaks onto a dot
+	
 	if (newText != null) {
 		newText = newText.replace(new RegExp( '\\.', 'g' ), '\n');  //convert all dots back to linebreak
 		this.properties.annotation = newText;
@@ -171,12 +172,15 @@ function editAnnotation() {
 		
 		
 		//resize the background element of the annotation
-		var bb = this.wrapper.getBBox();
-		this.innerNoDrag.annotationBg.attr('height', this.innerNoDrag.annotation[0].scrollHeight);
-		this.innerNoDrag.annotationBg.attr('width', this.innerNoDrag.annotation[0].scrollWidth);
-		this.innerNoDrag.annotationBg.attr('x', bb.x + bb.width/2 - this.innerNoDrag.annotation[0].scrollWidth/2);
-		this.innerNoDrag.annotationBg.attr('y', bb.y - this.innerNoDrag.annotation[0].scrollHeight);
-		this.innerNoDrag.annotation.attr('y', bb.y - this.innerNoDrag.annotation[0].scrollHeight/2);
+		var elementBB = this.wrapper.getBBox();
+		var annotationBB = this.innerNoDrag.annotation[0].getBBox();
+		this.innerNoDrag.annotationBg.attr('height', annotationBB.height + 6);
+		this.innerNoDrag.annotationBg.attr('width', annotationBB.width + 10);
+		this.innerNoDrag.annotationBg.attr('x', elementBB.x + elementBB.width/2 - annotationBB.width/2 - 5);
+		this.innerNoDrag.annotationBg.attr('y', elementBB.y - annotationBB.height - 3);
+		this.innerNoDrag.annotation.attr('y', elementBB.y - annotationBB.height/2);
+		
+		console.log('xxx edit annotation');
 	}
 }
 
