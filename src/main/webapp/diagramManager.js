@@ -310,14 +310,20 @@ $(document).ready(function () {
 				hoverButtons[i].remove();
 			}
 			
+			$('svg').attr('width', $('#world').width());
+            $('svg').attr('height', $('#world').height());
+            
 			//access the SVG element and serialize it
 			var text = (new XMLSerializer()).serializeToString(document.getElementById("world").childNodes[0]);
 			
-			//open the encoded SVG data in a new tab
-			open("data:image/svg+xml," + encodeURIComponent(text));
+			$('svg').attr('width', '100%');
+            $('svg').attr('height', '100%');
+			
 			
 			//put the buttons back
 			createButtons();
+			
+			return "data:image/svg+xml," + encodeURIComponent(text);
 		},
 		load: function(input) {
 			if (input) {

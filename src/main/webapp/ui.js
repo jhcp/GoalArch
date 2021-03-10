@@ -141,7 +141,8 @@ $(document).ready(function () {
 		changeListSelection('#modelingModeList', $('#buttonRequirementsMode'));
 	});
 	$('#toolbarSaveSVG').click(function() {
-		diagramManager.saveSvg();
+		 var svgData = diagramManager.saveSvg();
+		 Joint.dia.downloadDataUri(svgData, 'gato-GoalModel.svg');
 	});
 	$('#toolbarCreateMetamodel').click(function() {
 		diagramManager.createZanshinMetamodel();
