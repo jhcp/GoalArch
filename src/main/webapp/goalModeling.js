@@ -33,7 +33,7 @@ var goalModel = function (){
 		originOffsetX: -50, 
 		originOffsetY: 100, 
 		buttons: [0,1,2,3], 
-		buttonsInDesign: [1,2,3], 
+		buttonsInDesign: [1,2,3,4,5], 
 	};
 	
 	this.TYPE_TASK = 'task';
@@ -45,7 +45,7 @@ var goalModel = function (){
 		originOffsetX: -90,
 		originOffsetY: 100,
 		buttons: [2,3],
-		buttonsInDesign: [1,2,3],
+		buttonsInDesign: [1,2,3,4,5],
 	};
 	
 	this.TYPE_QUALITY = 'quality';
@@ -57,7 +57,7 @@ var goalModel = function (){
 		originOffsetX: -50,
 		originOffsetY: 100,
 		buttons: [1,2,3],
-		buttonsInDesign: [1,2,3],
+		buttonsInDesign: [1,2,3,4,5],
 	};
 	
 	this.TYPE_ASSUMPTION = 'domainAssumption';
@@ -69,7 +69,7 @@ var goalModel = function (){
 		originOffsetX: -50,
 		originOffsetY: 100,
 		buttons: [3],
-		buttonsInDesign: [3],
+		buttonsInDesign: [3,4,5],
 	};
 	this.TYPE_SOFTGOAL = 'softgoal';
 	this.nodeCreators.softgoal = {
@@ -258,7 +258,7 @@ global.goalModel = new goalModel();
 function nodeHoverIn()
 {
 	if(dragStartPosition==null) {		//this condition prevents showing buttons during dragging
-		//if (this[0].nodeName != 'text')
+		
 		global.goalModel.highlightedNode = this.wholeShape;
 		
 		if ((global.goalModel.mode==global.goalModel.MODE_REQUIREMENTS || global.goalModel.mode == global.goalModel.MODE_DESIGN )) {
@@ -270,7 +270,9 @@ function nodeHoverIn()
 				actions = global.goalModel.highlightedNode.actions;
 			}
 			
-			if (this[0].nodeName == 'text') {	//if it is a text (label) we don't need to update the position
+			if (this[0].nodeName == 'text' && !(this.wholeShape.properties.object == 'indicator')) {	
+				//if it is a text (label) we don't need to update the position, since the labels reside inside a shape.
+				//unless the node is an indicator, which do not reside inside a shape
 				for (i in actions) {
 					global.hoverButtons[actions[i]].show();
 					global.hoverButtons[actions[i]].toFront();
@@ -278,8 +280,8 @@ function nodeHoverIn()
 			} else {
 				var buttonsCount = 1;
 				for (i in actions) {
-					global.hoverButtons[actions[i]].attr({x: this.wholeShape.wrapper.getBBox().x -28 + 32*buttonsCount});
-					global.hoverButtons[actions[i]].attr({y: this.wholeShape.wrapper.getBBox().y + 26});
+					global.hoverButtons[actions[i]].attr({x: this.wholeShape.wrapper.getBBox().x -40 + 30*buttonsCount});
+					global.hoverButtons[actions[i]].attr({y: this.wholeShape.wrapper.getBBox().y + this.wholeShape.wrapper.getBBox().height - 12});
 					global.hoverButtons[actions[i]].show();
 					global.hoverButtons[actions[i]].toFront();
 					buttonsCount++;
@@ -350,6 +352,8 @@ function createButtons() {
 	hoverButtons.push(createAddButton(goalModel.addTaskButton, 2));
 	hoverButtons.push(createAddButton(goalModel.addQualityButton, 3));
 	hoverButtons.push(createAddButton(goalModel.addAssumptionButton, 4));
+	hoverButtons.push(createAddButton(goalModel.addIndicatorButton, 5));
+	hoverButtons.push(createAddButton(goalModel.addParameterButton, 6));
 	
 	return this;
 }

@@ -7,7 +7,7 @@ goalModel.nodeCreators.designTask = {
 	originOffsetY: 100,
 	defaultLinkShape: Joint.dia.goal.andArrow,
 	buttons: [1,2,3],
-	buttonsInDesign: [1,2,3],
+	buttonsInDesign: [1,2,3,4,5],
 };
 
 var TYPE_DESIGN_CONSTRAINT = 'designConstraint';
@@ -19,7 +19,7 @@ goalModel.nodeCreators.designConstraint = {
 	originOffsetY: 100,
 	defaultLinkShape: Joint.dia.goal.andArrow,
 	buttons: [1,2,3],
-	buttonsInDesign: [1,2,3],
+	buttonsInDesign: [1,2,3,4,5],
 };
 
 var TYPE_DESIGN_ASSUMPTION = 'designAssumption';
@@ -31,7 +31,7 @@ goalModel.nodeCreators.designAssumption = {
 	originOffsetY: 100,
 	defaultLinkShape: Joint.dia.goal.andArrow,
 	buttons: [3],
-	buttonsInDesign: [3],
+	buttonsInDesign: [3,4,5],
 };
 
 var TYPE_PARAMETER = 'parameter';
@@ -53,7 +53,17 @@ goalModel.nodeCreators.indicator = {
 	originOffsetX: 50,
 	originOffsetY: 50,
 	defaultLinkShape: Joint.dia.goal.line,
-	buttons: []
+	buttons: [],
+	buttonsInDesign: [4],
+};
+
+goalModel.addIndicatorButton = {
+	filename: 'images/ui-addIndicatorButton-28x26.png',
+	action: this.TYPE_INDICATOR,
+};
+goalModel.addParameterButton = {
+	filename: 'images/ui-addParameterButton-28x26.png',
+	action: this.TYPE_PARAMETER,
 };
 
 
@@ -347,6 +357,7 @@ function displaySimpleWarning(message) {
 
 goalModel.old_createChildNode = goalModel.createChildNode;
 goalModel.createChildNode = function (nodeProperties, nodeCreator, parent) {
+	console.log(nodeCreator);
 	if (goalModel.mode === goalModel.MODE_REQUIREMENTS) {
 		goalModel.old_createChildNode(nodeProperties, nodeCreator, parent);
 	}
