@@ -239,7 +239,7 @@ $(document).ready(function () {
 			var tempContent = "";
 			var tempType = "";
 			var systemName = 'testSystem';
-			var metamodel = '<?xml version="1.0" encoding="UTF-8"?><ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="' + systemName + '" nsURI="http://disi.unitn.it/zanshin/1.0/' + systemName + '" nsPrefix="' + systemName + '">\n';
+			var metamodel = '<?xml version="1.0" encoding="UTF-8"?>\n<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="' + systemName + '" nsURI="http://disi.unitn.it/zanshin/1.0/' + systemName + '" nsPrefix="' + systemName + '">\n';
 			metamodel += '<eClassifiers xsi:type="ecore:EClass" name="' + systemName + 'GoalModel" eSuperTypes="http://disi.unitn.it/zanshin/1.0/gore#//GoalModel"/>';
 			
 			var element = null;
@@ -298,9 +298,7 @@ $(document).ready(function () {
 			metamodel += '</ecore:EPackage>';
 			console.log(metamodel);
 			
-			window.open("data:text/json;charset=utf-8," + escape(metamodel));document.open();
-			
-			return metamodel;
+			return "data:text/json;charset=utf-8," + escape(metamodel);
 		},
 		saveSvg: function() {
 			//remove the buttons, we don't want them in the image

@@ -148,7 +148,8 @@ $(document).ready(function () {
 		 diagramManager.savePng(Joint.dia.downloadBlob, 'gato-GoalModel', 1, true);
 	});
 	$('#toolbarCreateMetamodel').click(function() {
-		diagramManager.createZanshinMetamodel();
+		var metamodelData = diagramManager.createZanshinMetamodel();
+		Joint.dia.downloadDataUri(metamodelData, 'gato-ZanshinMetamodel.ecore');
 	});
 
 	
