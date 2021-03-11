@@ -14,10 +14,12 @@ function getStatechart(flowExpression) {
 			
 			// generate textual statechart description /////////////////////////////
 			var text = '<b>Super states (XOR):</b> ';
+			var xorStatesString = ''
 			for (i in xorStates) {
-				text += xorStates[i] + ', ';
+				xorStatesString += xorStates[i] + ', ';
 			}
-			text = text.substr(0, text.lastIndexOf(','));
+			xorStatesString = xorStatesString.substr(0, xorStatesString.lastIndexOf(','));
+			text += xorStatesString;
 			
 			text += '<br /><br /><b>Atomic states:</b> ';
 			for (i in data.atomicStates) {
@@ -48,17 +50,32 @@ function getStatechart(flowExpression) {
 			//create list of state names
 			var stateNames = '';
 			Joint.dia.each(function() {
-				if (data.atomicStates.includes(this.properties.name)) {
+				//currently (v8.9.1) the mermaid js does not support descriptive names for composite states - see https://github.com/mermaid-js/mermaid/issues/1284
+				//once that is supported we may be able to support displaying the names of the composite states, instead of just the id
+				//to that end, the condition below can be extended to include the names of XOR states: || xorStatesString.includes(this.properties.name)
+				if ( data.atomicStates.includes(this.properties.name) ) {
 					cleanStateName = this.properties.content.replace('\:', '').replace('\n', '');
 					stateNames += this.properties.name + ' : (' + this.properties.name + ') ' + cleanStateName + '\n';
 				}
 			});
+			
+			var superStatesString = '';
+			for (j = xorStates.length - 1; j >= 0; j--) {
+				var parent = xorStates[j].substr(0, xorStates[j].indexOf('('));
+				var children = xorStates[j].substr(xorStates[j].indexOf('(') + 1, xorStates[j].length - xorStates[j].indexOf('(') - 2).split(',');
+				superStatesString += 'state ' + parent + '{\n';
+				for (k = 0; k < children.length; k++) {
+					superStatesString += children[k] + '\n'
+				}
+				superStatesString += '}\n';
+			}
 			
 			var graphDefinition = 'stateDiagram-v2\n';
 			for (j in transitions) {
 				graphDefinition += transitions[j] + '\n';
 			}
 			graphDefinition += stateNames;
+			graphDefinition += superStatesString;
 			var graph = mermaid.mermaidAPI.render('graphDiv', graphDefinition, function(svg) {
 				$('#statechartDiagram').html(svg);
 			});
