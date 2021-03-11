@@ -105,7 +105,7 @@ body {
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="index.html">Home</a></li>
-						<li class="active"><a href="#about">About</a></li>
+						<li class="active"><a href="#about">Help/About</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -116,22 +116,23 @@ body {
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span2"></div>
-			<div class="span9">
+			<div class="span8">
 				<div class="hero-unit">
 					<h1>GATO (Goal &rarr; Arch)</h1>
 					<p>This is a prototype tool developed to evaluate a framework
 						for deriving architectural models from requirements models. It is
 						a prototype, so please proceed with caution and report any bugs
 						you find.</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/vl4MdkGkzdQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<p>
 						<a href="https://github.com/jhcp/GoalArch"
-							class="btn btn-primary btn-large disabled">Learn more &raquo;</a>
+							class="btn btn-primary btn-large disabled">GitHub repository &raquo;</a>
 					</p>
 				</div>
 				<div class="row-fluid">
 
 					<div class="span6">
-						<h2>Edit it</h2>
+						<h2>Goal modelling</h2>
 						<p>
 							The edition of the goal model is based on <b>pointing the
 								mouse over </b> an element of the model. As you point it, buttons
@@ -141,8 +142,6 @@ body {
 						</p>
 					</div>
 					<!--/span-->
-
-
 
 					<div class="span6">
 						<h2>Keyboard Shortcuts</h2>
@@ -212,6 +211,10 @@ body {
 						<p>
 							<img src="images/key.png" />
 						</p>
+						<p>
+							For further details on the modelling notation, the flow expressions, and the framework, see 
+							<a href="https://www.cin.ufpe.br/~jhcp/publica/thesis2015.pdf" target="_blank">this thesis</a>.
+						</p>
 					</div>
 					<!--/span-->
 
@@ -220,10 +223,10 @@ body {
 
 				<div class="row-fluid">
 					<div class="span4">
-						<h2>Save as SVG</h2>
-						<p>When you click in the 'Save SVG' button, a new window will
-							pop-up with your model. Then, right-click on the model and go for
-							'Save as...' to actually save it to your hard-disk.</p>
+						<h2>Save as image</h2>
+						<p>When you click in the 'Save SVG' or 'Save PNG' button, the current view of the model
+						will be downloaded. If the statechart diagram is currently being displayed, these buttons
+						will download an image of the statechart.</p>
 					</div>
 					<!--/span-->
 					<div class="span4">
@@ -235,11 +238,8 @@ body {
 					<!--/span-->
 					<div class="span4">
 						<h2>Browsers</h2>
-						<p>Tested with Chrome, Firefox and Internet Explorer. Even
-							though it works in all these browsers, the performance is greatly
-							better with Chrome.</p>
-						<p>Currently, the 'Save SVG' feature is not supported in
-							Internet Explorer.</p>
+						<p>Chrome is the safest option to use this tool.</p>
+
 					</div>
 					<!--/span-->
 
@@ -249,7 +249,7 @@ body {
 
 				<div class="row-fluid">
 
-					<div class="span6">
+					<div class="span4">
 						<h2>Analyze it</h2>
 						<p>By clicking the Analyze Model button in the toolbar you can
 							find out:</p>
@@ -263,21 +263,33 @@ body {
 					</div>
 					<!--/span-->
 
-					<div class="span6">
+					<div class="span4">
 						<h2>Statechart</h2>
-						<p>The diagrammatic version of the derived statechart is still
-							incomplete: it doesn't show superstates.</p>
-						<p>
-							For running simulations with statecharts we recommend the <a
-								href="http://statecharts.org/">Yakindu Statechart Tool</a>.
-						</p>
+						<p>Once you have annotated your goal model with flow expressions (Behavior refinement view), you can generate
+						a statechart diagram from the derivation tab.</p>
+					</div>
+					
+					<div class="span4">
+						<h2>Examples</h2>
+						<p>You can find valid examples of goal models to be loaded into the tool
+						<a href="https://github.com/jhcp/GoalArch/tree/master/examples">here</a>.</p>
 					</div>
 
 				</div>
-
+				
 				<div class="row-fluid">
-					<div class="span8">
-						<h2>About</h2>
+
+					<div class="span6">
+						<h2>Research papers</h2>
+						<div id="shortcuts" class="alert alert-success pull-left">
+							<p>This tool was created by João Pimentel to support the process created during his PhD in Computer Science. Papers that explain
+							the process or the tool are available 
+							<a href="https://github.com/jhcp/GoalArch/tree/master/papers">here</a>.</p>
+						</div>
+					</div>
+					
+					<div class="span6">
+						<h2>Dependencies</h2>
 						<p>The following open-source libraries and frameworks are used
 							in this tool:</p>
 						<ul>
@@ -300,8 +312,9 @@ body {
 						</ul>
 					</div>
 
+
 				</div>
-				<!--/row-->
+
 
 				<div class="row-fluid"></div>
 			</div>
