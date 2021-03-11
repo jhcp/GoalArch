@@ -288,7 +288,7 @@ function processAnnotations() {
 		warnings.push({text: 'the following tasks were not included in the flow expression: ' + missingTaskWarning, 
 			count: numberOfTasksNotIncluded});
 	}
-	warnings.push({text: 'number of elements', count: numberOfElements, type: 'info'});
+	warnings.push({text: 'this model has ' + numberOfElements + ' elements', count: 1, type: 'info'});
 	displayWarning(warnings);
 
 	//clean up
