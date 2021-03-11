@@ -81,7 +81,7 @@ $(document).ready(function () {
 			diagramManager.changeView(goalModel.MODE_REQUIREMENTS);
 			//goalModel.addTaskButton.action = goalModel.TYPE_TASK;
 			hoverButtons[1].action = goalModel.TYPE_TASK;
-			goalModel.addQualityButton.action = goalModel.TYPE_TASK;
+			goalModel.addQualityButton.action = goalModel.TYPE_QUALITY;
 			goalModel.addAssumptionButton.action = goalModel.TYPE_ASSUMPTION;
 		},
 		changeToDesign: function () {

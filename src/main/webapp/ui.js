@@ -135,10 +135,10 @@ $(document).ready(function () {
 	});
 	$('#toolbarClearModel').click(function() {
 		goalModel.clearPaper();
-		diagramManager.changeToRequirements();
 		$('#world').show();
 		$('#derivationDiv').hide();
 		changeListSelection('#modelingModeList', $('#buttonRequirementsMode'));
+		diagramManager.changeToRequirements();
 	});
 	$('#toolbarSaveSVG').click(function() {
 		 if (goalModel.mode == goalModel.MODE_DERIVATION) {
