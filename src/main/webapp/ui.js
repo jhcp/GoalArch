@@ -141,11 +141,22 @@ $(document).ready(function () {
 		changeListSelection('#modelingModeList', $('#buttonRequirementsMode'));
 	});
 	$('#toolbarSaveSVG').click(function() {
-		 var svgData = diagramManager.saveSvg();
-		 Joint.dia.downloadDataUri(svgData, 'gato-GoalModel.svg');
+		 if (goalModel.mode == goalModel.MODE_DERIVATION) {
+		 	var svgData = diagramManager.saveSvg('statechart');
+		 	Joint.dia.downloadDataUri(svgData, 'gato-Statechart.svg');
+		 }
+		 else {
+		 	var svgData = diagramManager.saveSvg('goalmodel');
+		 	Joint.dia.downloadDataUri(svgData, 'gato-GoalModel.svg');
+		 }
 	});
 	$('#toolbarSavePNG').click(function() {
-		 diagramManager.savePng(Joint.dia.downloadBlob, 'gato-GoalModel', 1, true);
+		if (goalModel.mode == goalModel.MODE_DERIVATION) {
+			diagramManager.savePng(Joint.dia.downloadBlob, 'gato-Statechart', 4, true, 'statechart');
+		}
+		else {
+			diagramManager.savePng(Joint.dia.downloadBlob, 'gato-GoalModel', 1, true, 'goalmodel');
+		}
 	});
 	$('#toolbarCreateMetamodel').click(function() {
 		var metamodelData = diagramManager.createZanshinMetamodel();

@@ -70,7 +70,8 @@ function getStatechart(flowExpression) {
 				superStatesString += '}\n';
 			}
 			
-			var graphDefinition = 'stateDiagram-v2\n';
+			//this CSS style prevents wrong formatting of the labels when saving the statechart as an image
+			var graphDefinition = '%%{init: {"themeCSS": ".label foreignObject { font-size: 14px; overflow: visible;}"}}%%\nstateDiagram-v2\n';
 			for (j in transitions) {
 				graphDefinition += transitions[j] + '\n';
 			}

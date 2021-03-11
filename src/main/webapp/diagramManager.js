@@ -300,7 +300,7 @@ $(document).ready(function () {
 			
 			return "data:text/json;charset=utf-8," + escape(metamodel);
 		},
-		saveSvg: function() {
+		saveSvg: function(diagram) {
 			//remove the buttons, we don't want them in the image
 			for (i in hoverButtons) {
 				//actually, we remove the buttons because currently they are based on image files
@@ -312,7 +312,13 @@ $(document).ready(function () {
             $('svg').attr('height', $('#world').height());
             
 			//access the SVG element and serialize it
-			var text = (new XMLSerializer()).serializeToString(document.getElementById("world").childNodes[0]);
+			if (diagram == 'goalmodel') {
+				var text = (new XMLSerializer()).serializeToString(document.getElementById('world').childNodes[0]);
+			}
+			else {
+				var text = (new XMLSerializer()).serializeToString(document.getElementById('graphDiv'));
+			}
+			
 			
 			$('svg').attr('width', '100%');
             $('svg').attr('height', '100%');
@@ -323,7 +329,7 @@ $(document).ready(function () {
 			
 			return "data:image/svg+xml," + encodeURIComponent(text);
 		},
-		savePng: function (callback, filename, resolutionFactor, transparent) {
+		savePng: function (callback, filename, resolutionFactor, transparent, diagram) {
             //create a canvas, which is used to convert the SVG to png
             var canvas = document.createElement('canvas');
             var canvasContext = canvas.getContext('2d');
@@ -332,7 +338,12 @@ $(document).ready(function () {
             var imageElement = new Image();
             $('svg').attr('width', $('#world').width());
             $('svg').attr('height', $('#world').height());
-            var text = (new XMLSerializer()).serializeToString(document.getElementById("world").childNodes[0]);
+            if (diagram == 'goalmodel') {
+            	var text = (new XMLSerializer()).serializeToString(document.getElementById("world").childNodes[0]);
+            }
+            else {
+            	var text = (new XMLSerializer()).serializeToString(document.getElementById("graphDiv"));
+            }
             $('svg').attr('width', '100%');
             $('svg').attr('height', '100%');
             imageElement.src = "data:image/svg+xml," + encodeURIComponent(text);
