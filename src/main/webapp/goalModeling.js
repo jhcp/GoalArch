@@ -32,7 +32,7 @@ var goalModel = function (){
 		defaultLinkShape: Joint.dia.goal.andArrow, 
 		originOffsetX: -50, 
 		originOffsetY: 100, 
-		buttons: [0,1,2,3], 
+		buttons: [0,1,2,3,4,5], 
 		buttonsInDesign: [1,2,3,4,5], 
 	};
 	
@@ -44,7 +44,7 @@ var goalModel = function (){
 		defaultLinkShape: Joint.dia.goal.andArrow,
 		originOffsetX: -90,
 		originOffsetY: 100,
-		buttons: [2,3],
+		buttons: [2,3,4,5],
 		buttonsInDesign: [1,2,3,4,5],
 	};
 	
@@ -56,7 +56,7 @@ var goalModel = function (){
 		defaultLinkShape: Joint.dia.goal.andArrow,
 		originOffsetX: -50,
 		originOffsetY: 100,
-		buttons: [1,2,3],
+		buttons: [1,2,3,4,5],
 		buttonsInDesign: [1,2,3,4,5],
 	};
 	
@@ -68,7 +68,7 @@ var goalModel = function (){
 		defaultLinkShape: Joint.dia.goal.andArrow,
 		originOffsetX: -50,
 		originOffsetY: 100,
-		buttons: [3],
+		buttons: [3,4,5],
 		buttonsInDesign: [3,4,5],
 	};
 	this.TYPE_SOFTGOAL = 'softgoal';
@@ -79,7 +79,7 @@ var goalModel = function (){
 		defaultLinkShape: Joint.dia.goal.andArrow,
 		originOffsetX: -50,
 		originOffsetY: 100,
-		buttons: [2],
+		buttons: [2,4,5],
 		buttonsInDesign: [2],
 	};
 	
@@ -280,8 +280,16 @@ function nodeHoverIn()
 			} else {
 				var buttonsCount = 1;
 				for (i in actions) {
-					global.hoverButtons[actions[i]].attr({x: this.wholeShape.wrapper.getBBox().x -40 + 30*buttonsCount});
-					global.hoverButtons[actions[i]].attr({y: this.wholeShape.wrapper.getBBox().y + this.wholeShape.wrapper.getBBox().height - 12});
+					//if there are too many buttons to be displayed on the bottom of the element, move them to the top
+					if (buttonsCount > 5) {
+						global.hoverButtons[actions[i]].attr({x: this.wholeShape.wrapper.getBBox().x -40 + 30*(buttonsCount-5)});
+						global.hoverButtons[actions[i]].attr({y: this.wholeShape.wrapper.getBBox().y - 12});
+					}
+					else {
+						global.hoverButtons[actions[i]].attr({x: this.wholeShape.wrapper.getBBox().x -40 + 30*buttonsCount});
+						global.hoverButtons[actions[i]].attr({y: this.wholeShape.wrapper.getBBox().y + this.wholeShape.wrapper.getBBox().height - 12});
+					}
+					
 					global.hoverButtons[actions[i]].show();
 					global.hoverButtons[actions[i]].toFront();
 					buttonsCount++;
@@ -449,6 +457,20 @@ $(document).keypress(function(e) {
 			}
 			else if (e.which==65 || e.which==97) {  //A or a
 				goalModel.createChildNode(null, goalModel.nodeCreators[goalModel.TYPE_ASSUMPTION], goalModel.highlightedNode);
+			}
+			else if (e.which==80 || e.which==112) {  //P or p
+				goalModel.createChildNode(null, goalModel.nodeCreators[TYPE_PARAMETER], goalModel.highlightedNode);
+				if (!diagramManager.isShowAdaptationElements()) {
+					$('#toolbarToggleAdaptationElements').button('toggle');
+					diagramManager.toggleViewAdaptationElements();
+				}
+			}
+			else if (e.which==73 || e.which==105) {  //I or i
+				goalModel.createChildNode(null, goalModel.nodeCreators[TYPE_INDICATOR], goalModel.highlightedNode);
+				if (!diagramManager.isShowAdaptationElements()) {
+					$('#toolbarToggleAdaptationElements').button('toggle');
+					diagramManager.toggleViewAdaptationElements();
+				}
 			}
 			
 			
