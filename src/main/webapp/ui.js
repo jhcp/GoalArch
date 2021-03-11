@@ -170,6 +170,7 @@ $(document).ready(function () {
 		$('#derivationDiv').hide();
 		$('#adaptationDiv').hide();
 		$('#transitionsDiv').hide();
+		goalModel.changedModel = true;
 		$(this).button('loading');
 		//load the model with a small delay, giving time to the browser to display the 'loading' message
 		setTimeout(function (){

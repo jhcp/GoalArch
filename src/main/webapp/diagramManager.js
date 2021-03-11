@@ -117,6 +117,8 @@ $(document).ready(function () {
 			if (goalModel.changedModel) {
 				$('#combinedExpression').html('');
 				$('#statechart').html('');
+				$('#statechartDiagram').html('');
+				$('.generatedStatechartArea').hide();
 				listAlternativeBehaviorRefinements();
 				goalModel.changedModel = false;
 			}

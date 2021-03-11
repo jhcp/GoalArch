@@ -92,7 +92,6 @@ function getStatechart(flowExpression) {
 				}
 			});
 			
-
 		},
 		beforeSend: function(xhr){
 			//$('.loader').css({display:"block"});
@@ -102,6 +101,7 @@ function getStatechart(flowExpression) {
 		complete: function(){
 			//$('.loader').css({display:"none"});
 			console.log('completed');
+			$('.generatedStatechartArea').show();
 		},
 		error: function(data){
 			$('#statechart').html('Sorry, some error occurred when connecting to servers');
