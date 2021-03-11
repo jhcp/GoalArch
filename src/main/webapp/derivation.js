@@ -104,7 +104,13 @@ function getStatechart(flowExpression) {
 			$('.generatedStatechartArea').show();
 		},
 		error: function(data){
-			$('#statechart').html('Sorry, some error occurred when connecting to servers');
+			console.log(data);
+			if (data && data.responseText) {
+				$('#statechart').html(data.responseText);
+			}
+			else {
+				$('#statechart').html('Sorry, some error occurred when connecting to servers');
+			}
 			console.log('error');
 		}
 	});
