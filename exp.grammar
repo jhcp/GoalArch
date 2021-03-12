@@ -1,0 +1,40 @@
+// grammar for regular expressions
+Helpers
+   letter = [['a' .. 'z'] + ['A' .. 'Z']];
+   digit = ['0'..'9'];
+   space = ' ';
+   newline = '\n';
+
+   
+Tokens
+   lparen = '(';
+   rparen = ')';
+   or    = '|';
+   minus  = '-';
+   
+   plus   = '+';   
+   times  = '*';
+   questionmark  = '?';
+
+   whitespace = (space | newline)+;   
+   id = letter (letter | digit)*;
+
+
+Ignored Tokens
+   ; 
+
+Productions
+
+   exp    = {term} term
+          | {sequence} exp whitespace term
+          ;
+   term   = {basicterm} basicterm
+          | {alternative} term or basicterm
+		  | {orthogonal} term minus basicterm
+		  | {zeroormore} term times
+		  | {oneormore} term plus
+		  | {optional} term questionmark
+          ;
+   basicterm = {state} id
+          | {nested} lparen exp rparen
+          ;
