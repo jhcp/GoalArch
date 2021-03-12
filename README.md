@@ -5,7 +5,7 @@ This is a web-based tool for supporting the derivation of architectural models (
 A video demonstration is available at https://www.youtube.com/watch?v=vl4MdkGkzdQ (additional features were released
  after the recording of this video).
 
-A live version of the tool is available here: http://gatoalpha-1049.appspot.com/
+A live version of the tool is available here: https://gatoalpha-1049.appspot.com/
 
 For further information, please contact jhcp at cin ufpe br
 
